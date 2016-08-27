@@ -1,0 +1,22 @@
+[user]
+    name = Faris Amali Alis
+    email = faris.amali@booster.com
+[credential]
+    helper = cache --timeout=3600
+[core]
+    excludesfile = ~/.gitignore
+[push]
+    default = simple
+[color]
+    status = always
+    ui = true
+[core]
+    editor = nvim
+[github]
+    user = martin-svk
+[branch]
+    autosetuprebase = always
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = diff_wrapper "$LOCAL" "$REMOTE"

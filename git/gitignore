@@ -1,0 +1,35 @@
+# Compiled sources
+# ===========================
+
+# Packages
+# ===========================
+
+# Logs and databases
+# ===========================
+
+# OS generated files
+# ===========================
+
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editors
+# ===========================
+
+# VIM
+Session.vim
+.*.swo
+.*.swp
+*~
+
+# Other
+# ===========================
+
+.rake_tasks
+.tags
+tags
+.starscope.db
