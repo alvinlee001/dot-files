@@ -75,6 +75,8 @@ Plug 'jacoborus/tender.vim'
 " Utilities
 " ---------------------------------------------------------------------------------------
 
+" Delete all but current buffer
+Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
 " Intelligent buffer closing
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 " Fugitive
@@ -516,6 +518,12 @@ let g:fzf_nvim_statusline = 0
 nnoremap <silent> <leader>o :FZF<CR>
 nnoremap <leader>gg :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
+
+" ---------------------------------------------------------------------------------------
+" BufOnly
+" ---------------------------------------------------------------------------------------
+
+nnoremap ,C :Bonly<CR>
 
 " =======================================================================================
 " Autocommands
