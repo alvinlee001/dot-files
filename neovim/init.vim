@@ -59,7 +59,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
-" Lightline 
+" Lightline
 Plug 'itchyny/lightline.vim'
 " Buffers tabline
 Plug 'ap/vim-buftabline'
@@ -94,7 +94,7 @@ call plug#end()
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " =======================================================================================
-" Basic settings 
+" Basic settings
 " =======================================================================================
 
 set shell=/bin/zsh                          " Setting shell to zsh
@@ -136,7 +136,7 @@ set ttimeout
 set ttimeoutlen=10
 
 " =======================================================================================
-" Spelling settings 
+" Spelling settings
 " =======================================================================================
 
 set nospell
@@ -164,6 +164,11 @@ filetype indent on
 syntax on
 colorscheme tendercontrast
 
+" Link highlight groups to improve buftabline color
+hi! link BufTabLineCurrent Identifier
+hi! link BufTabLineActive Comment
+hi! link BufTabLineHidden Comment
+hi! link BufTabLineFill Comment
 " =======================================================================================
 " Neovim specific settings
 " =======================================================================================
@@ -181,7 +186,7 @@ endif
 " =======================================================================================
 
 " ---------------------------------------------------------------------------------------
-" Leader 
+" Leader
 " ---------------------------------------------------------------------------------------
 
 let g:mapleader="\<space>"
@@ -207,7 +212,7 @@ nnoremap <F1> <NOP>
 nnoremap Q <NOP>
 
 " ---------------------------------------------------------------------------------------
-" Insane Overrides 
+" Insane Overrides
 " ---------------------------------------------------------------------------------------
 
 " Easier window switching
@@ -297,7 +302,7 @@ endif
 xnoremap . :norm.<CR>
 
 " ---------------------------------------------------------------------------------------
-" Common tasks 
+" Common tasks
 " ---------------------------------------------------------------------------------------
 
 " Quick save and close buffer
@@ -382,13 +387,13 @@ nnoremap <silent> <F7> :set list!<CR> :set list?<CR>
 " New term buffer
 nnoremap <silent> <F8> :terminal<CR>
 " Free
-" nnoremap <silent> <F9> 
+" nnoremap <silent> <F9>
 " Free
 " nnoremap <silent> <F10>
 " Free
-" nnoremap <silent> <F11> 
+" nnoremap <silent> <F11>
 " Free
-" nnoremap <slient> <F12> 
+" nnoremap <slient> <F12>
 
 " ---------------------------------------------------------------------------------------
 " Buffer management
@@ -453,7 +458,7 @@ tnoremap <A-l> <C-\><C-n><C-w>l
 
 
 " ---------------------------------------------------------------------------------------
-" Lightline 
+" Lightline
 " ---------------------------------------------------------------------------------------
 
 let g:lightline = {
@@ -505,12 +510,34 @@ let g:NERDTreeRespectWildIgnore=1
 " FZF
 " ---------------------------------------------------------------------------------------
 
+let g:fzf_layout = { 'down': '~25%'}
+let g:fzf_nvim_statusline = 0
+
 nnoremap <silent> <leader>o :FZF<CR>
 nnoremap <leader>gg :Ag<Space>
+nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 
 " =======================================================================================
 " Autocommands
 " =======================================================================================
+"
+" Remove trailing whitespaces automatically before save
+autocmd BufWritePre * call utils#stripTrailingWhitespaces()
+
+" Resize splits when the window is resized {{{
+autocmd VimResized * :wincmd =
+
+" Make sure Vim returns to the same line when you reopen a file. Thanks, Amit and Steve Losh. {{{
+augroup line_return
+  au!
+  au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Run checktime in buffers, but avoiding the "Command Line" (q:) window
+autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
 " ---------------------------------------------------------------------------------------
 " Linters

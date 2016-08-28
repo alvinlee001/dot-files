@@ -308,7 +308,7 @@ endfunction
 " Search current word with CtrlSF
 " Inspired by github.com/zenbro
 function! g:utils#searchCurrentWordWithAg() abort
-  execute 'CtrlSF' expand('<cword>')
+  execute 'Ag' expand('<cword>')
 endfunction
 
 " Reset tabs to 4 spaces
