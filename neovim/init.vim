@@ -552,5 +552,5 @@ autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 " ---------------------------------------------------------------------------------------
 
 " gem install rubocop
-autocmd BufWritePost *.rb Neomake rubocop
+" autocmd BufWritePost *.rb Neomake rubocop
 
