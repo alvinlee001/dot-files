@@ -101,7 +101,7 @@ call plug#end()
 
 set shell=/bin/zsh                          " Setting shell to zsh
 set number                                  " Line numbers on
-set showmode                                " Always show mode
+set noshowmode                              " Always show mode
 set showcmd                                 " Show commands as you type them
 set textwidth=120                           " Text width is 120 characters
 set cmdheight=1                             " Command line height
