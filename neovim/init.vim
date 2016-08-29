@@ -36,6 +36,12 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-sleuth'
 " Highlighting for all
 Plug 'sheerun/vim-polyglot'
+" Happy endings
+Plug 'tpope/vim-endwise'
+" Replace selection with paste
+Plug 'vim-scripts/ReplaceWithRegister'
+" Split - Join multilines
+Plug 'AndrewRadev/splitjoin.vim'
 
 " ---------------------------------------------------------------------------------------
 " Productivity plugins
@@ -171,6 +177,7 @@ hi! link BufTabLineCurrent Identifier
 hi! link BufTabLineActive Comment
 hi! link BufTabLineHidden Comment
 hi! link BufTabLineFill Comment
+
 " =======================================================================================
 " Neovim specific settings
 " =======================================================================================
@@ -294,12 +301,6 @@ silent! unmap ]%
 xnoremap <  <gv
 xnoremap >  >gv
 
-" Terminal mode mappings
-if has('nvim')
-  tnoremap <ESC> <C-\><C-n>
-  tnoremap ,<ESC> <ESC>
-endif
-
 " Make . work with visually selected lines
 xnoremap . :norm.<CR>
 
@@ -378,7 +379,7 @@ nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
 " nnoremap <silent> <F2>
 " Free
 " nnoremap <silent> <F3>
-" Toggle spelling
+" Toggle pastemode
 nnoremap <silent> <F4> :set paste!<CR> :set nopaste?<CR>
 " Source (reload configuration)
 nnoremap <silent> <F5> :source $MYNVIMRC<CR>
@@ -446,19 +447,6 @@ let test#strategy = "neoterm"
 " vertical split instead of the default horizontal
 let g:neoterm_position = "vertical"
 
-" pretty much essential: by default in terminal mode, you have to press ctrl-\-n to get into normal mode
-" ain't nobody got time for that
-tnoremap <Esc> <C-\><C-n>
-
-" optional: make it easier to switch between terminal splits
-" ctrl doesn't work for some reason so I use alt
-" I think the terminal is capturing ctrl and not bubbling to vim or something
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-
-
 " ---------------------------------------------------------------------------------------
 " Lightline
 " ---------------------------------------------------------------------------------------
@@ -512,10 +500,9 @@ let g:NERDTreeRespectWildIgnore=1
 " FZF
 " ---------------------------------------------------------------------------------------
 
-let g:fzf_layout = { 'down': '~25%'}
-let g:fzf_nvim_statusline = 0
+let g:fzf_layout = { 'down': '~30%'}
 
-nnoremap <silent> <leader>o :FZF<CR>
+nnoremap <leader>o :FZF<CR>
 nnoremap <leader>gg :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 
