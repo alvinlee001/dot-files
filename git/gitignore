@@ -4,6 +4,9 @@
 # Packages
 # ===========================
 
+.overcommit.yml
+
+
 # Logs and databases
 # ===========================
 
