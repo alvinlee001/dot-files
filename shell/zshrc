@@ -36,14 +36,17 @@ plugins=(git rbenv)
 # Sourcing
 # =====================================================================================================================
 
-# Oh my zsh
-source $ZSH/oh-my-zsh.sh
-
 # Booster-related macros (uncommited)
 source ~/.booster-macros.sh
 
+# Oh my zsh
+source $ZSH/oh-my-zsh.sh
+
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # =====================================================================================================================
 # My additional aliases
