@@ -437,7 +437,7 @@ let g:neomake_error_sign = {
       \ }
 
 " ---------------------------------------------------------------------------------------
-" Vim-test + neoterm
+" Vim-test + VTR
 " ---------------------------------------------------------------------------------------
 
 " vim-test maps
@@ -452,6 +452,13 @@ let test#strategy = "vtr"
 
 " vertical split instead of the default horizontal
 let g:neoterm_position = "horizontal"
+
+" vtr maps
+nnoremap <leader>fr :VtrFocusRunner<cr>
+nnoremap <leader>kr :VtrKillRunner<cr>
+nnoremap <leader>rr :VtrSendLinesToRunner<cr>
+nnoremap <leader>dr :VtrSendCtrlD<cr>
+nnoremap <leader>ar :VtrAttachToPane<cr>
 
 " ---------------------------------------------------------------------------------------
 " Lightline
