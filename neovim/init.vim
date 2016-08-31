@@ -49,8 +49,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " Running tests with different ganularities
 Plug 'janko-m/vim-test'
-" Terminal wrapper
+" Neoterm
 Plug 'kassio/neoterm'
+" VTR
+Plug 'christoomey/vim-tmux-runner'
 
 " ---------------------------------------------------------------------------------------
 " Fuzzy searcher
@@ -125,6 +127,7 @@ set scrolloff=5                             " Scroll when closing to top or bott
 set updatetime=1000                         " Update time used to create swap file or other things
 set suffixesadd+=.js,.rb                    " Add js and ruby files to suffixes
 set synmaxcol=160                           " Don't try to syntax highlight minified files
+set nowrap                                  " Don't wrap lines
 
 " =======================================================================================
 " Split settings
@@ -172,11 +175,14 @@ filetype indent on
 syntax on
 colorscheme tendercontrast
 
-" Link highlight groups to improve buftabline color
-hi! link BufTabLineCurrent Identifier
-hi! link BufTabLineActive Comment
-hi! link BufTabLineHidden Comment
-hi! link BufTabLineFill Comment
+" Highlight Visual mode
+hi visual guifg=white guibg=lightblue gui=none
+
+" link highlight groups to improve buftabline color
+hi! link buftablinecurrent identifier
+hi! link buftablineactive comment
+hi! link buftablinehidden comment
+hi! link buftablinefill comment
 
 " =======================================================================================
 " Neovim specific settings
@@ -442,10 +448,10 @@ map <silent> <leader>r :TestLast<CR>
 map <silent> <leader>g :TestVisit<CR>
 
 " run tests with :T
-let test#strategy = "neoterm"
+let test#strategy = "vtr"
 
 " vertical split instead of the default horizontal
-let g:neoterm_position = "vertical"
+let g:neoterm_position = "horizontal"
 
 " ---------------------------------------------------------------------------------------
 " Lightline
@@ -490,7 +496,7 @@ nnoremap <leader>gH :Gbrowse<CR>
 " ---------------------------------------------------------------------------------------
 
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=45
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline=0
