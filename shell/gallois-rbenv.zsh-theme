@@ -16,7 +16,7 @@ if [[ -s ~/.rvm/scripts/rvm ]] ; then
   RPS1='$(git_custom_status)%{$fg[red]%}[`~/.rvm/bin/rvm-prompt`]%{$reset_color%} $EPS1'
 else
   if which rbenv &> /dev/null; then
-    RPS1='$(git_custom_status)%{$fg[red]%}[`rbenv version | sed -e "s/ (set.*$//"`]%{$reset_color%} $EPS1'
+    RPS1='$(git_custom_status)%{$fg[red]%} [`rbenv version | sed -e "s/ (set.*$//"`] %{$reset_color%}💎$EPS1'
   else
     if [[ -n `which chruby_prompt_info` && -n `chruby_prompt_info` ]]; then
       RPS1='$(git_custom_status)%{$fg[red]%}[`chruby_prompt_info`]%{$reset_color%} $EPS1'
