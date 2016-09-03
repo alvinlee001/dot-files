@@ -551,6 +551,7 @@ autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 " Linters
 " ---------------------------------------------------------------------------------------
 
+" npm install -g eslint
+autocmd BufWritePost *.js Neomake eslint
 " gem install rubocop
 " autocmd BufWritePost *.rb Neomake rubocop
-
