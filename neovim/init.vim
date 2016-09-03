@@ -1,13 +1,13 @@
-"----------------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " Loosing all hope was freedom -- Tyler Durden
 "
 " @author Faris Amali Alis
 " @version 1.0
-"----------------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 
-" =======================================================================================
+" ==============================================================================
 " Plugin manager (Plug) settings
-" =======================================================================================
+" ==============================================================================
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -17,12 +17,12 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " START-OF-PLUG
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" ---------------------------------------------------------------------------------------
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ------------------------------------------------------------------------------
 " Language related plugins
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake', { 'on': ['Neomake'] }
@@ -43,9 +43,9 @@ Plug 'vim-scripts/ReplaceWithRegister'
 " Split - Join multilines
 Plug 'AndrewRadev/splitjoin.vim'
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Productivity plugins
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Running tests with different ganularities
 Plug 'janko-m/vim-test'
@@ -54,16 +54,16 @@ Plug 'kassio/neoterm'
 " VTR
 Plug 'christoomey/vim-tmux-runner'
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Fuzzy searcher
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " fzf binding
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Interface uplift
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
@@ -72,16 +72,16 @@ Plug 'itchyny/lightline.vim'
 " Buffers tabline
 Plug 'ap/vim-buftabline'
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Colorschemes
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Tender
 Plug 'jacoborus/tender.vim'
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Utilities
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
@@ -96,49 +96,51 @@ Plug 'edsono/vim-matchit'
 " vim + tmux clipboard
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
+" Gitgutterz
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " END-OF-PLUG
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" =======================================================================================
+" ==============================================================================
 " Basic settings
-" =======================================================================================
+" ==============================================================================
 
-set shell=/bin/zsh                          " Setting shell to zsh
-set number                                  " Line numbers on
-set noshowmode                              " Always show mode
-set showcmd                                 " Show commands as you type them
-set textwidth=120                           " Text width is 120 characters
-set cmdheight=1                             " Command line height
-set pumheight=10                            " Completion window max size
-set noswapfile                              " New buffers will be loaded without creating a swapfile
-set hidden                                  " Enables to switch between unsaved buffers and keep undo history
-set clipboard+=unnamed                      " Allow to use system clipboard
-set lazyredraw                              " Don't redraw while executing macros (better performance)
-set showmatch                               " Show matching brackets when text indicator is over them
-set matchtime=2                             " How many tenths of a second to blink when matching brackets
-set nostartofline                           " Prevent cursor from moving to beginning of line when switching buffers
-set virtualedit=block                       " To be able to select past EOL in visual block mode
-set nojoinspaces                            " No extra space when joining a line which ends with . ? !
-set scrolloff=5                             " Scroll when closing to top or bottom of the screen
-set updatetime=1000                         " Update time used to create swap file or other things
-set suffixesadd+=.js,.rb                    " Add js and ruby files to suffixes
-set synmaxcol=160                           " Don't try to syntax highlight minified files
-set nowrap                                  " Don't wrap lines
+set shell=/bin/zsh       " Setting shell to zsh
+set number               " Line numbers on
+set noshowmode           " Always show mode
+set showcmd              " Show commands as you type them
+set textwidth=120        " Text width is 120 characters
+set cmdheight=1          " Command line height
+set pumheight=10         " Completion window max size
+set noswapfile           " New buffers will be loaded without creating a swapfile
+set hidden               " Enables to switch between unsaved buffers and keep undo history
+set clipboard+=unnamed   " Allow to use system clipboard
+set lazyredraw           " Don't redraw while executing macros (better performance)
+set showmatch            " Show matching brackets when text indicator is over them
+set matchtime=2          " How many tenths of a second to blink when matching brackets
+set nostartofline        " Prevent cursor from moving to beginning of line when switching buffers
+set virtualedit=block    " To be able to select past EOL in visual block mode
+set nojoinspaces         " No extra space when joining a line which ends with . ? !
+set scrolloff=5          " Scroll when closing to top or bottom of the screen
+set updatetime=1000      " Update time used to create swap file or other things
+set suffixesadd+=.js,.rb " Add js and ruby files to suffixes
+set synmaxcol=160        " Don't try to syntax highlight minified files
+set nowrap               " Don't wrap lines
 
-" =======================================================================================
+" ==============================================================================
 " Split settings
-" =======================================================================================
+" ==============================================================================
 
-set splitbelow                              " Splitting a window will put the new window below the current
-set splitright                              " Splitting a window will put the new window right of the current
+set splitbelow " Splitting a window will put the new window below the current
+set splitright " Splitting a window will put the new window right of the current
 
-" =======================================================================================
+" ==============================================================================
 " Timeout settings
-" =======================================================================================
+" ==============================================================================
 
 " Time out on key codes but not mappings. Basically this makes terminal Vim
 " work sanely. (by Steve Losh)
@@ -146,31 +148,31 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-" =======================================================================================
+" ==============================================================================
 " Spelling settings
-" =======================================================================================
+" ==============================================================================
 
 set nospell
 
-" =======================================================================================
+" ==============================================================================
 " Search settings
-" =======================================================================================
+" ==============================================================================
 
-set ignorecase                              " Ignore case by default
-set smartcase                               " Make search case sensitive only if it contains uppercase letters
-set wrapscan                                " Search again from top when reached the bottom
-set nohlsearch                              " Don't highlight after search
+set ignorecase " Ignore case by default
+set smartcase  " Make search case sensitive only if it contains U letters
+set wrapscan   " Search again from top when reached the bottom
+set nohlsearch " Don't highlight after search
 
-" =======================================================================================
+" ==============================================================================
 " Filetype settings
-" =======================================================================================
+" ==============================================================================
 
 filetype plugin on
 filetype indent on
 
-" =======================================================================================
+" ==============================================================================
 " Colorscheme + Highlighting settings
-" =======================================================================================
+" ==============================================================================
 
 syntax on
 colorscheme tendercontrast
@@ -178,38 +180,41 @@ colorscheme tendercontrast
 " Highlight Visual mode
 hi visual guifg=white guibg=lightblue gui=none
 
-" link highlight groups to improve buftabline color
+" Link highlight groups to improve buftabline color
 hi! link buftablinecurrent identifier
 hi! link buftablineactive comment
 hi! link buftablinehidden comment
 hi! link buftablinefill comment
 
-" =======================================================================================
-" Neovim specific settings
-" =======================================================================================
+" Lonsistent SignColumn
+hi clear SignColumn
 
-let g:loaded_python_provider=1              " Disable python 2 interface
-let g:python_host_skip_check=1              " Skip python 2 host check
+" ==============================================================================
+" Neovim specific settings
+" ==============================================================================
+
+let g:loaded_python_provider=1                    " Disable python 2 interface
+let g:python_host_skip_check=1                    " Skip python 2 host check
 let g:python3_host_prog='/usr/local/bin/python3'  " Set python 3 host program
 
 if has('termguicolors')
  set termguicolors " Turn on true colors support
 endif
 
-" =======================================================================================
+" ==============================================================================
 " Mappings
-" =======================================================================================
+" ==============================================================================
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Leader
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 let g:mapleader="\<space>"
 imap jk <Esc>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Insane Defaults
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 nnoremap <up> <NOP>
 nnoremap <down> <NOP>
@@ -226,9 +231,9 @@ inoremap <F1> <NOP>
 nnoremap <F1> <NOP>
 nnoremap Q <NOP>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Insane Overrides
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Easier window switching
 nmap <silent> <C-w><C-w> :call utils#intelligentCycling()<CR>
@@ -310,9 +315,9 @@ xnoremap >  >gv
 " Make . work with visually selected lines
 xnoremap . :norm.<CR>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Common tasks
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Quick save and close buffer
 nnoremap ,w :w<CR>
@@ -375,9 +380,9 @@ vnoremap ,s :!sort<CR>
 cnoremap ww wqall
 cnoremap qq qall
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " F-key actions
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " NERDTree wrapper
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
@@ -404,9 +409,9 @@ nnoremap <silent> <F8> :terminal<CR>
 " Free
 " nnoremap <slient> <F12>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Buffer management
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Intelligent windows resizing using ctrl + arrow keys
 nnoremap <silent> <C-Right> :call utils#intelligentVerticalResize('right')<CR>
@@ -418,15 +423,15 @@ nnoremap <silent> <C-Down> :resize -1<CR>
 nnoremap <silent> + :bn<CR>
 nnoremap <silent> _ :bp<CR>
 
-" =======================================================================================
+" ==============================================================================
 " Plugin settings
-" =======================================================================================
+" ==============================================================================
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Neomake
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-let g:neomake_verbose=0
+let g:neomake_verbose=1
 let g:neomake_warning_sign = {
       \ 'text': '❯',
       \ 'texthl': 'WarningMsg',
@@ -436,9 +441,9 @@ let g:neomake_error_sign = {
       \ 'texthl': 'ErrorMsg',
       \ }
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Vim-test + VTR
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " vim-test maps
 map <silent> <leader>t :TestNearest<CR>
@@ -460,9 +465,9 @@ nnoremap <leader>rr :VtrSendLinesToRunner<cr>
 nnoremap <leader>dr :VtrSendCtrlD<cr>
 nnoremap <leader>ar :VtrAttachToPane<cr>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Lightline
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 let g:lightline = {
       \ 'colorscheme': 'powerline',
@@ -491,16 +496,16 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " Fugitive
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gH :Gbrowse<CR>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " NERDTree
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=45
@@ -509,9 +514,9 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeRespectWildIgnore=1
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " FZF
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 let g:fzf_layout = { 'down': '~30%'}
 
@@ -519,23 +524,23 @@ nnoremap <leader>o :FZF<CR>
 nnoremap <leader>gg :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " BufOnly
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 nnoremap ,C :Bonly<CR>
 
-" =======================================================================================
+" ==============================================================================
 " Autocommands
-" =======================================================================================
-"
+" ==============================================================================
+
 " Remove trailing whitespaces automatically before save
 autocmd BufWritePre * call utils#stripTrailingWhitespaces()
 
 " Resize splits when the window is resized {{{
 autocmd VimResized * :wincmd =
 
-" Make sure Vim returns to the same line when you reopen a file. Thanks, Amit and Steve Losh. {{{
+" Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
   au!
   au BufReadPost *
@@ -547,11 +552,17 @@ augroup END
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
-" ---------------------------------------------------------------------------------------
-" Linters
-" ---------------------------------------------------------------------------------------
+" Place a dummy sign column
+autocmd BufEnter * sign define dummy
+autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 
+" ------------------------------------------------------------------------------
+" Linters
+" ------------------------------------------------------------------------------
+
+" npm install -g standard
+autocmd BufWritePost *.js Neomake standard
 " npm install -g eslint
-autocmd BufWritePost *.js Neomake eslint
+" autocmd BufWritePost *.js Neomake eslint
 " gem install rubocop
 " autocmd BufWritePost *.rb Neomake rubocop
