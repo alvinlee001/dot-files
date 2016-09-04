@@ -98,6 +98,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 " Gitgutterz
 Plug 'airblade/vim-gitgutter'
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -431,7 +433,7 @@ nnoremap <silent> _ :bp<CR>
 " Neomake
 " ------------------------------------------------------------------------------
 
-let g:neomake_verbose=1
+let g:neomake_verbose=0
 let g:neomake_warning_sign = {
       \ 'text': '❯',
       \ 'texthl': 'WarningMsg',
@@ -561,7 +563,7 @@ autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('
 " ------------------------------------------------------------------------------
 
 " npm install -g standard
-autocmd BufWritePost *.js Neomake standard
+autocmd BufWritePost *.js,*.jsx Neomake standard
 " npm install -g eslint
 " autocmd BufWritePost *.js Neomake eslint
 " gem install rubocop
