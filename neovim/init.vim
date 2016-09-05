@@ -177,7 +177,7 @@ filetype indent on
 " ==============================================================================
 
 syntax on
-colorscheme tendercontrast
+colorscheme tender
 
 " Highlight Visual mode
 hi visual guifg=white guibg=lightblue gui=none
