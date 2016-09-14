@@ -183,10 +183,10 @@ colorscheme tender
 hi visual guifg=white guibg=lightblue gui=none
 
 " Link highlight groups to improve buftabline color
-hi! link buftablinecurrent identifier
-hi! link buftablineactive comment
-hi! link buftablinehidden comment
-hi! link buftablinefill comment
+hi! link BufTabLineCurrent TabLineSel
+hi! link BufTabLineActive PmenuSel
+hi! link BufTabLineHidden TabLine
+hi! link BufTabLineFill TabLineFill
 
 " Lonsistent SignColumn
 hi clear SignColumn
@@ -525,6 +525,14 @@ let g:fzf_layout = { 'down': '~30%'}
 nnoremap <leader>o :FZF<CR>
 nnoremap <leader>gg :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
+
+" ------------------------------------------------------------------------------
+" BufTabLine
+" ------------------------------------------------------------------------------
+
+let g:buftabline_show=2
+let g:buftabline_numbers=2
+let g:buftabline_separators=1
 
 " ------------------------------------------------------------------------------
 " BufOnly
