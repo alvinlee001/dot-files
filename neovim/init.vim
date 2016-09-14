@@ -78,6 +78,8 @@ Plug 'ap/vim-buftabline'
 
 " Tender
 Plug 'jacoborus/tender.vim'
+" WWDC
+Plug 'lifepillar/vim-wwdc16-theme'
 
 " ------------------------------------------------------------------------------
 " Utilities
@@ -177,7 +179,7 @@ filetype indent on
 " ==============================================================================
 
 syntax on
-colorscheme tender
+colorscheme wwdc16
 
 " Highlight Visual mode
 hi visual guifg=white guibg=lightblue gui=none
