@@ -458,7 +458,7 @@ map <silent> <leader>g :TestVisit<CR>
 let test#strategy = "vtr"
 
 " vertical split instead of the default horizontal
-let g:neoterm_position = "horizontal"
+" let g:neoterm_position = "horizontal"
 
 " vtr maps
 nnoremap <leader>fr :VtrFocusRunner<cr>
@@ -510,7 +510,7 @@ nnoremap <leader>gH :Gbrowse<CR>
 " ------------------------------------------------------------------------------
 
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeWinSize=45
+let g:NERDTreeWinSize=40
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline=0
@@ -568,3 +568,5 @@ autocmd BufWritePost *.js,*.jsx Neomake standard
 " autocmd BufWritePost *.js Neomake eslint
 " gem install rubocop
 " autocmd BufWritePost *.rb Neomake rubocop
+" brew install elixir
+autocmd BufWritePost *.ex,*.exs Neomake elixir
