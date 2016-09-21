@@ -42,8 +42,6 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/ReplaceWithRegister'
 " Split - Join multilines
 Plug 'AndrewRadev/splitjoin.vim'
-" Quick scoping
-Plug 'unblevable/quick-scope'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
