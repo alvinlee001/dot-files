@@ -42,6 +42,8 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/ReplaceWithRegister'
 " Split - Join multilines
 Plug 'AndrewRadev/splitjoin.vim'
+" Quick scoping
+Plug 'unblevable/quick-scope'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -77,7 +79,7 @@ Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------------------
 
 " Tender
-Plug 'jacoborus/tender.vim'
+Plug 'jacoborus/tender'
 " WWDC
 Plug 'lifepillar/vim-wwdc16-theme'
 
@@ -178,8 +180,8 @@ filetype indent on
 " Colorscheme + Highlighting settings
 " ==============================================================================
 
-syntax on
-colorscheme wwdc16
+syntax enable
+colorscheme tender
 
 " Highlight Visual mode
 hi visual guifg=white guibg=lightblue gui=none
@@ -474,7 +476,7 @@ nnoremap <leader>ar :VtrAttachToPane<cr>
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'tender',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]
@@ -532,9 +534,9 @@ nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 " BufTabLine
 " ------------------------------------------------------------------------------
 
-let g:buftabline_show=2
+" let g:buftabline_show=2
 let g:buftabline_numbers=2
-let g:buftabline_separators=1
+" let g:buftabline_separators=1
 
 " ------------------------------------------------------------------------------
 " BufOnly
