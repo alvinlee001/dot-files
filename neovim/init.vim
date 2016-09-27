@@ -80,6 +80,8 @@ Plug 'ap/vim-buftabline'
 Plug 'jacoborus/tender'
 " WWDC
 Plug 'lifepillar/vim-wwdc16-theme'
+" Gotham
+Plug 'whatyouhide/vim-gotham'
 
 " ------------------------------------------------------------------------------
 " Utilities
@@ -179,7 +181,7 @@ filetype indent on
 " ==============================================================================
 
 syntax enable
-colorscheme tender
+colorscheme gotham
 
 " Highlight Visual mode
 hi visual guifg=white guibg=lightblue gui=none
@@ -437,11 +439,11 @@ nnoremap <silent> _ :bp<CR>
 
 let g:neomake_verbose=0
 let g:neomake_warning_sign = {
-      \ 'text': '❯',
+      \ 'text': '►',
       \ 'texthl': 'WarningMsg',
       \ }
 let g:neomake_error_sign = {
-      \ 'text': '❯',
+      \ 'text': '✖︎',
       \ 'texthl': 'ErrorMsg',
       \ }
 
@@ -474,7 +476,7 @@ nnoremap <leader>ar :VtrAttachToPane<cr>
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'tender',
+      \ 'colorscheme': 'gotham',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]
@@ -573,10 +575,10 @@ autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('
 " ------------------------------------------------------------------------------
 
 " npm install -g standard
-autocmd BufWritePost *.js,*.jsx Neomake standard
+" autocmd BufWritePost *.js,*.jsx Neomake standard
 " npm install -g eslint
 " autocmd BufWritePost *.js Neomake eslint
 " gem install rubocop
 " autocmd BufWritePost *.rb Neomake rubocop
 " brew install elixir
-autocmd BufWritePost *.ex,*.exs Neomake elixir
+" autocmd BufWritePost *.ex,*.exs Neomake elixir
