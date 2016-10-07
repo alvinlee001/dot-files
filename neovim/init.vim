@@ -195,6 +195,20 @@ hi! link BufTabLineFill TabLineFill
 " Lonsistent SignColumn
 hi clear SignColumn
 
+
+" ==============================================================================
+" Syntax Settings
+" ==============================================================================
+
+" Haskell
+let g:haskell_indent_if=3
+let g:haskell_indent_case=2
+let g:haskell_indent_let=4
+let g:haskell_indent_where=6
+let g:haskell_indent_do=3
+let g:haskell_indent_in=1
+let g:haskell_indent_guard=2
+
 " ==============================================================================
 " Neovim specific settings
 " ==============================================================================
