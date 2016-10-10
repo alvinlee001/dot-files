@@ -42,6 +42,8 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/ReplaceWithRegister'
 " Split - Join multilines
 Plug 'AndrewRadev/splitjoin.vim'
+" Easymotion
+Plug 'easymotion/vim-easymotion'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -564,9 +566,7 @@ nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 " BufTabLine
 " ------------------------------------------------------------------------------
 
-" let g:buftabline_show=2
 let g:buftabline_numbers=2
-" let g:buftabline_separators=1
 
 " ------------------------------------------------------------------------------
 " BufOnly
