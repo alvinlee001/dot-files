@@ -53,6 +53,8 @@ Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 " VTR
 Plug 'christoomey/vim-tmux-runner'
+" Hardtime
+Plug 'takac/vim-hardtime'
 
 " ------------------------------------------------------------------------------
 " Fuzzy searcher
