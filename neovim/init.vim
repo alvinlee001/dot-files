@@ -540,6 +540,7 @@ let g:lightline = {
 
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gH :Gbrowse<CR>
+vnoremap <leader>gH :Gbrowse<CR>
 
 " ------------------------------------------------------------------------------
 " NERDTree
