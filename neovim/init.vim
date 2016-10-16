@@ -57,6 +57,8 @@ Plug 'kassio/neoterm'
 Plug 'christoomey/vim-tmux-runner'
 " Hardtime
 Plug 'takac/vim-hardtime'
+" Git commit message
+Plug 'rhysd/committia.vim'
 
 " ------------------------------------------------------------------------------
 " Fuzzy searcher
