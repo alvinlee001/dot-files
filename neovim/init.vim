@@ -141,10 +141,8 @@ set suffixesadd+=.js,.rb  " Add js and ruby files to suffixes
 set synmaxcol=160         " Don't try to syntax highlight minified files
 set nowrap                " Don't wrap lines
 set expandtab             " Use space characters in place of tab characters
-set tabstop=8             " Two spaces when tabbing
-set softtabstop=4         " Two spaces soft tab stop
-set shiftwidth=4          " Two spaces when indenting
-set shiftround            " Round indent to nearest shiftwidth multiple
+set softtabstop=2         " Two spaces soft tab stop
+set shiftwidth=2          " Two spaces when indenting
 
 " ==============================================================================
 " Split settings
@@ -211,12 +209,12 @@ hi clear SignColumn
 
 " Haskell
 " Highlighting
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_enable_quantification=1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo=1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax=1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms=1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles=1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers=1  " to enable highlighting of `static`
 
 " Indentation
 let g:haskell_indent_if=3
