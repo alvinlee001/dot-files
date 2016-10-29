@@ -88,6 +88,8 @@ Plug 'jacoborus/tender'
 Plug 'lifepillar/vim-wwdc16-theme'
 " Gotham
 Plug 'whatyouhide/vim-gotham'
+" Dracula
+Plug 'dracula/vim'
 
 " ------------------------------------------------------------------------------
 " Utilities
@@ -190,7 +192,7 @@ filetype indent on
 " ==============================================================================
 
 syntax enable
-colorscheme gotham
+colorscheme dracula
 
 " Highlight Visual mode
 hi visual guifg=white guibg=lightblue gui=none
@@ -508,7 +510,7 @@ nnoremap <leader>ar :VtrAttachToPane<cr>
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'gotham',
+      \ 'colorscheme': 'Dracula',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]
