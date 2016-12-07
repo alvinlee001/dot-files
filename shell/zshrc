@@ -62,6 +62,7 @@ alias bsl='brew services list'
 # Applications
 # ------------------------------------------
 alias v='nvim'
+alias e='emacs -nw'
 
 # ------------------------------------------
 # Language specific
