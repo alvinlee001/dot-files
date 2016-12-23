@@ -55,6 +55,9 @@ Plug 'janko-m/vim-test'
 Plug 'christoomey/vim-tmux-runner'
 " Git commit message
 Plug 'rhysd/committia.vim'
+" Deoplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fishbullet/deoplete-ruby'
 
 " ------------------------------------------------------------------------------
 " Fuzzy searcher
@@ -93,6 +96,8 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'tpope/vim-fugitive'
 " Surround (cs"')
 Plug 'tpope/vim-surround'
+" Matchit enhances jump motion
+Plug 'tmhedberg/matchit'
 " vim + tmux clipboard
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
@@ -100,6 +105,8 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'airblade/vim-gitgutter'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
+" Tagbar
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -388,8 +395,8 @@ cnoremap qq qall
 
 " NERDTree wrapper
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
-" Free
-" nnoremap <silent> <F2>
+" Tagbar
+nnoremap <silent> <F2> :TagbarToggle<CR>
 " Free
 " nnoremap <silent> <F3>
 " Toggle pastemode
@@ -461,11 +468,30 @@ let test#strategy = "vtr"
 " let g:neoterm_position = "horizontal"
 
 " vtr maps
-nnoremap <leader>fr :VtrFocusRunner<cr>
-nnoremap <leader>kr :VtrKillRunner<cr>
-nnoremap <leader>rr :VtrSendLinesToRunner<cr>
-nnoremap <leader>dr :VtrSendCtrlD<cr>
-nnoremap <leader>ar :VtrAttachToPane<cr>
+nnoremap <leader>fr :VtrFocusRunner<CR>
+nnoremap <leader>kr :VtrKillRunner<CR>
+nnoremap <leader>rr :VtrSendLinesToRunner<CR>
+nnoremap <leader>dr :VtrSendCtrlD<CR>
+nnoremap <leader>ar :VtrAttachToPane<CR>
+
+" ------------------------------------------------------------------------------
+" Deoplete
+" ------------------------------------------------------------------------------
+
+" initialization
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always=0
+
+" deoplete maps
+" Insert <TAB> or select next match
+inoremap <silent> <expr> <Tab> utils#tabComplete()
+
+" Manually trigger tag autocomplete
+inoremap <silent> <expr> <C-]> utils#manualTagComplete()
+
+" <C-h>, <BS>: close popup and delete backword char
+inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
 " ------------------------------------------------------------------------------
 " Lightline
