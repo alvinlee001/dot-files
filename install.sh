@@ -2,7 +2,7 @@
 
 #----------------------------------------------------------------------------------------
 # Loosing all hope was freedom -- Tyler Durden
-# 
+#
 # @author Faris Amali Alis
 # @version 1.0
 #----------------------------------------------------------------------------------------
@@ -38,6 +38,7 @@ install_nvim_folder() {
   mkdir -p ~/.config/nvim/autoload
   install_plug_nvim
   ln -sf $current_path/neovim/autoload/utils.vim ~/.config/nvim/autoload/utils.vim
+  ln -sf $current_path/neovim/UltiSnips ~/.config/nvim/UltiSnips
   ln -sf $current_path/neovim/init.vim ~/.config/nvim/init.vim
 }
 

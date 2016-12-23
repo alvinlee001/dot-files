@@ -44,6 +44,8 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/splitjoin.vim'
 " Easymotion
 Plug 'easymotion/vim-easymotion'
+" Ultisnips
+Plug 'SirVer/ultisnips'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -492,6 +494,20 @@ inoremap <silent> <expr> <C-]> utils#manualTagComplete()
 " <C-h>, <BS>: close popup and delete backword char
 inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+
+" ------------------------------------------------------------------------------
+" Ultisnips
+" ------------------------------------------------------------------------------
+
+" initialization
+let g:UltiSnipsUsePythonVersion=3
+
+" Disable built-in cx-ck to be able to go backward
+inoremap <C-x><C-k> <NOP>
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsListSnippets='<C-s>'
+let g:UltiSnipsJumpForwardTrigger='<C-j>'
+let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 
 " ------------------------------------------------------------------------------
 " Lightline
