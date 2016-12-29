@@ -78,6 +78,8 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'itchyny/lightline.vim'
 " Buffers tabline
 Plug 'ap/vim-buftabline'
+" Indent Line
+Plug 'Yggdroot/indentLine'
 
 " ------------------------------------------------------------------------------
 " Colorschemes
@@ -109,6 +111,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 " Tagbar
 Plug 'majutsushi/tagbar'
+" Better scroll
+Plug 'yuttie/comfortable-motion.vim'
+" Better start
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -192,11 +198,10 @@ syntax on
 colorscheme dracula
 
 " Colorscheme overrides
-hi LineNr guifg=#ef5350 guibg=#14151b gui=NONE
-hi Normal guifg=#f8f8f2 guibg=#14151b gui=NONE
-hi TabLine guifg=#ef5350 guibg=#282a36 gui=none
-hi NonText guifg=#525563 guibg=#14151b gui=NONE
-hi SignColumn guifg=#ef5350 guibg=#14151b gui=NONE
+hi LineNr guifg=#909194 guibg=#1c1d25 gui=NONE
+hi Normal guifg=#f8f8f2 guibg=#1c1d25 gui=NONE
+hi NonText guifg=#525563 guibg=#1c1d25 gui=NONE
+hi SignColumn guifg=#909194 guibg=#1c1d25 gui=NONE
 
 " Highlight Visual mode
 hi Visual guifg=White guibg=Lightblue gui=NONE
