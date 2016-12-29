@@ -1,8 +1,8 @@
 "-------------------------------------------------------------------------------
-" Loosing all hope was freedom -- Tyler Durden
+" My NeoVim Configuration
 "
 " @author Faris Amali Alis
-" @version 1.0
+" @version 2.0
 "-------------------------------------------------------------------------------
 
 " ==============================================================================
@@ -188,11 +188,18 @@ filetype indent on
 " Colorscheme + Highlighting settings
 " ==============================================================================
 
-syntax enable
+syntax on
 colorscheme dracula
 
+" Colorscheme overrides
+hi LineNr guifg=#ef5350 guibg=#14151b gui=NONE
+hi Normal guifg=#f8f8f2 guibg=#14151b gui=NONE
+hi TabLine guifg=#ef5350 guibg=#282a36 gui=none
+hi NonText guifg=#525563 guibg=#14151b gui=NONE
+hi SignColumn guifg=#ef5350 guibg=#14151b gui=NONE
+
 " Highlight Visual mode
-hi visual guifg=white guibg=lightblue gui=none
+hi Visual guifg=White guibg=Lightblue gui=NONE
 
 " Link highlight groups to improve buftabline color
 hi! link BufTabLineCurrent TabLineSel
@@ -439,6 +446,17 @@ nnoremap <silent> _ :bp<CR>
 " ==============================================================================
 
 " ------------------------------------------------------------------------------
+" Gitgutterz
+" ------------------------------------------------------------------------------
+
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_added = 'xx'
+let g:gitgutter_sign_modified = 'yy'
+let g:gitgutter_sign_removed = 'zz'
+let g:gitgutter_sign_removed_first_line = '^^'
+let g:gitgutter_sign_modified_removed = 'ww'
+
+" ------------------------------------------------------------------------------
 " Neomake
 " ------------------------------------------------------------------------------
 
@@ -613,10 +631,6 @@ augroup END
 
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
-
-" Place a dummy sign column
-autocmd BufEnter * sign define dummy
-autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 
 " ------------------------------------------------------------------------------
 " Linters
