@@ -111,8 +111,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 " Tagbar
 Plug 'majutsushi/tagbar'
-" Better scroll
-Plug 'yuttie/comfortable-motion.vim'
 " Better start
 Plug 'mhinz/vim-startify'
 
@@ -202,6 +200,9 @@ hi LineNr guifg=#909194 guibg=#1c1d25 gui=NONE
 hi Normal guifg=#f8f8f2 guibg=#1c1d25 gui=NONE
 hi NonText guifg=#525563 guibg=#1c1d25 gui=NONE
 hi SignColumn guifg=#909194 guibg=#1c1d25 gui=NONE
+
+hi TabLine guifg=#666666 guibg=#1c1d25 gui=NONE
+hi TabLineFill guifg=#333333 guibg=#1c1d25 gui=NONE
 
 " Highlight Visual mode
 hi Visual guifg=White guibg=Lightblue gui=NONE
