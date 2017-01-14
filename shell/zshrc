@@ -90,3 +90,12 @@ export MYNVIMRC='~/.config/nvim/init.vim'
 
 # Add my bin folders to PATH
 export PATH=$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+
+
+# =====================================================================================================================
+# Hooks
+# =====================================================================================================================
+
+# Direnv
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook zsh)"

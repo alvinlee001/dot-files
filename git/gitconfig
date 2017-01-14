@@ -1,6 +1,3 @@
-[user]
-    name = Faris Amali Alis
-    email = faris.amali@booster.com
 [credential]
     helper = cache --timeout=3600
 [core]
