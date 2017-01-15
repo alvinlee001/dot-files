@@ -5,6 +5,7 @@
 # ===========================
 
 .overcommit.yml
+.envrc
 
 
 # Logs and databases
