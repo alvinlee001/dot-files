@@ -86,7 +86,7 @@ Plug 'Yggdroot/indentLine'
 " ------------------------------------------------------------------------------
 
 " Dracula
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'whatyouhide/vim-gotham'
 
 " ------------------------------------------------------------------------------
 " Utilities
@@ -193,16 +193,16 @@ filetype indent on
 " ==============================================================================
 
 syntax on
-colorscheme dracula
+colorscheme gotham256
 
-" Colorscheme overrides
-hi LineNr guifg=#909194 guibg=#1c1d25 gui=NONE
-hi Normal guifg=#f8f8f2 guibg=#1c1d25 gui=NONE
-hi NonText guifg=#525563 guibg=#1c1d25 gui=NONE
-hi SignColumn guifg=#909194 guibg=#1c1d25 gui=NONE
+" Dracula overrides
+" hi LineNr guifg=#909194 guibg=#1c1d25 gui=NONE
+" hi Normal guifg=#f8f8f2 guibg=#1c1d25 gui=NONE
+" hi NonText guifg=#525563 guibg=#1c1d25 gui=NONE
+" hi SignColumn guifg=#909194 guibg=#1c1d25 gui=NONE
 
-hi TabLine guifg=#666666 guibg=#1c1d25 gui=NONE
-hi TabLineFill guifg=#333333 guibg=#1c1d25 gui=NONE
+" hi TabLine guifg=#666666 guibg=#1c1d25 gui=NONE
+" hi TabLineFill guifg=#333333 guibg=#1c1d25 gui=NONE
 
 " Highlight Visual mode
 hi Visual guifg=White guibg=Lightblue gui=NONE
@@ -549,7 +549,7 @@ let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'gotham256',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]
