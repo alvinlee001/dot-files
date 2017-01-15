@@ -571,8 +571,8 @@ let g:lightline = {
       \ 'component_visible_condition': {
       \   'readonly': '(&readonly)'
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 " ------------------------------------------------------------------------------
