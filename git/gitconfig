@@ -16,3 +16,5 @@
     tool = nvimdiff
 [difftool "nvimdiff"]
     cmd = diff_wrapper "$LOCAL" "$REMOTE"
+[user]
+    name = Faris Amali Alis
