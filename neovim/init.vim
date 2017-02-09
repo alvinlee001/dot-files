@@ -46,6 +46,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'easymotion/vim-easymotion'
 " Ultisnips
 Plug 'SirVer/ultisnips'
+" Elm
+Plug 'elmcast/elm-vim'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -78,8 +80,6 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'itchyny/lightline.vim'
 " Buffers tabline
 Plug 'ap/vim-buftabline'
-" Indent Line
-Plug 'Yggdroot/indentLine'
 
 " ------------------------------------------------------------------------------
 " Colorschemes
@@ -113,6 +113,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 " Better start
 Plug 'mhinz/vim-startify'
+" orgmode
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
 
 call plug#end()
 
@@ -615,6 +618,18 @@ let g:buftabline_numbers=2
 " ------------------------------------------------------------------------------
 
 nnoremap ,C :Bonly<CR>
+
+" ------------------------------------------------------------------------------
+" Polyglot
+" ------------------------------------------------------------------------------
+
+let g:polyglot_disabled = ['elm']
+
+" ------------------------------------------------------------------------------
+" Elm
+" ------------------------------------------------------------------------------
+
+let g:elm_format_autosave = 1
 
 " ==============================================================================
 " Autocommands
