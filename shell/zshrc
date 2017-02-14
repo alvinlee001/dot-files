@@ -102,3 +102,6 @@ export PATH=$HOME/.cargo/bin:$GOPATH/bin:$HOME/bin:/usr/local/bin:/usr/local/sbi
 # Direnv
 export DIRENV_LOG_FORMAT=
 eval "$(direnv hook zsh)"
+
+# FZF
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'

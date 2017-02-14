@@ -305,7 +305,7 @@ function! g:utils#howDoI() abort
   endif
 endfunction
 
-" Search current word with CtrlSF
+" Search current word with Ripgrep
 " Inspired by github.com/zenbro
 function! g:utils#searchCurrentWordWithAg() abort
   execute 'Ag' expand('<cword>')
