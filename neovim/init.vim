@@ -596,6 +596,8 @@ let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeRespectWildIgnore=1
+let g:NERDTreeIgnore=['node_modules$[[dir]]']
+let g:NERDTreeSortOrder=['\/$','^\.','^[a-z]','^[A-Z]']
 
 " ------------------------------------------------------------------------------
 " FZF
@@ -657,11 +659,6 @@ autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 " Linters
 " ------------------------------------------------------------------------------
 
-" npm install -g standard
-" autocmd BufWritePost *.js,*.jsx Neomake standard
-" npm install -g eslint
-" autocmd BufWritePost *.js Neomake eslint
-" gem install rubocop
-" autocmd BufWritePost *.rb Neomake rubocop
-" brew install elixir
-" autocmd BufWritePost *.ex,*.exs Neomake elixir
+" JS - Prettier
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js,*.jsx :normal gggqG
