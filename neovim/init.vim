@@ -59,9 +59,6 @@ Plug 'janko-m/vim-test'
 Plug 'christoomey/vim-tmux-runner'
 " Git commit message
 Plug 'rhysd/committia.vim'
-" Deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fishbullet/deoplete-ruby'
 
 " ------------------------------------------------------------------------------
 " Fuzzy searcher
@@ -626,6 +623,7 @@ nnoremap ,C :Bonly<CR>
 " ------------------------------------------------------------------------------
 
 let g:polyglot_disabled = ['elm']
+let g:rustfmt_autosave = 1
 
 " ------------------------------------------------------------------------------
 " Elm
