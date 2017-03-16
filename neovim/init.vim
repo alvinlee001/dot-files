@@ -24,8 +24,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Language related plugins
 " ------------------------------------------------------------------------------
 
-" Asynchronous maker and linter (needs linters to work)
-Plug 'benekastah/neomake', { 'on': ['Neomake'] }
 " Automatically closing pair stuff
 Plug 'cohama/lexima.vim'
 " Commenting support (gc)
@@ -46,8 +44,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'easymotion/vim-easymotion'
 " Ultisnips
 Plug 'SirVer/ultisnips'
-" Elm
-Plug 'elmcast/elm-vim'
+" Neoformat
+Plug 'sbdchd/neoformat'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -82,7 +80,7 @@ Plug 'ap/vim-buftabline'
 " Colorschemes
 " ------------------------------------------------------------------------------
 
-" Dracula
+" Gotham
 Plug 'whatyouhide/vim-gotham'
 
 " ------------------------------------------------------------------------------
@@ -463,20 +461,6 @@ let g:gitgutter_sign_removed_first_line = '^^'
 let g:gitgutter_sign_modified_removed = 'ww'
 
 " ------------------------------------------------------------------------------
-" Neomake
-" ------------------------------------------------------------------------------
-
-let g:neomake_verbose=0
-let g:neomake_warning_sign = {
-      \ 'text': '►',
-      \ 'texthl': 'WarningMsg',
-      \ }
-let g:neomake_error_sign = {
-      \ 'text': '✖︎',
-      \ 'texthl': 'ErrorMsg',
-      \ }
-
-" ------------------------------------------------------------------------------
 " Vim-test + VTR
 " ------------------------------------------------------------------------------
 
@@ -499,36 +483,6 @@ nnoremap <leader>kr :VtrKillRunner<CR>
 nnoremap <leader>rr :VtrSendLinesToRunner<CR>
 nnoremap <leader>dr :VtrSendCtrlD<CR>
 nnoremap <leader>ar :VtrAttachToPane<CR>
-
-" ------------------------------------------------------------------------------
-" Deoplete
-" ------------------------------------------------------------------------------
-
-" initialization
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always=0
-
-let g:deoplete#file#enable_buffer_path=1
-
-let g:deoplete#sources={}
-let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
-let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
-let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
-let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
-let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-
-" deoplete maps
-" Insert <TAB> or select next match
-inoremap <silent> <expr> <Tab> utils#tabComplete()
-
-" Manually trigger tag autocomplete
-inoremap <silent> <expr> <C-]> utils#manualTagComplete()
-
-" <C-h>, <BS>: close popup and delete backword char
-inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
 " ------------------------------------------------------------------------------
 " Ultisnips
@@ -618,19 +572,6 @@ let g:buftabline_numbers=2
 
 nnoremap ,C :Bonly<CR>
 
-" ------------------------------------------------------------------------------
-" Polyglot
-" ------------------------------------------------------------------------------
-
-let g:polyglot_disabled = ['elm']
-let g:rustfmt_autosave = 1
-
-" ------------------------------------------------------------------------------
-" Elm
-" ------------------------------------------------------------------------------
-
-let g:elm_format_autosave = 1
-
 " ==============================================================================
 " Autocommands
 " ==============================================================================
@@ -653,10 +594,7 @@ augroup END
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
-" ------------------------------------------------------------------------------
-" Linters
-" ------------------------------------------------------------------------------
-
-" JS - Prettier
-autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd BufWritePre *.js,*.jsx :normal gggqG
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
