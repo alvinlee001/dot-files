@@ -26,7 +26,7 @@ DISABLE_AUTO_TITLE="true"
 # =====================================================================================================================
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(common-aliases git rbenv tmux vi-mode)
+plugins=(asdf common-aliases git tmux vi-mode)
 
 # =====================================================================================================================
 # Plugins settings
@@ -88,11 +88,8 @@ export TERM=xterm-256color
 export EDITOR='nvim'
 export MYNVIMRC='~/.config/nvim/init.vim'
 
-# Export GOPATH
-export GOPATH=$HOME/.go
-
-# Add my bin folders to PATH
-export PATH=$HOME/.cargo/bin:$GOPATH/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+# PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 
 # =====================================================================================================================
