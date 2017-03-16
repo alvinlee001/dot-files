@@ -25,7 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
 " ------------------------------------------------------------------------------
 
 " Automatically closing pair stuff
-Plug 'cohama/lexima.vim'
+Plug 'jiangmiao/auto-pairs'
 " Commenting support (gc)
 Plug 'tpope/vim-commentary'
 " CamelCase and snake_case motions
@@ -34,8 +34,6 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-sleuth'
 " Highlighting for all
 Plug 'sheerun/vim-polyglot'
-" Happy endings
-Plug 'tpope/vim-endwise'
 " Replace selection with paste
 Plug 'vim-scripts/ReplaceWithRegister'
 " Split - Join multilines
@@ -450,7 +448,7 @@ nnoremap <silent> _ :bp<CR>
 " ==============================================================================
 
 " ------------------------------------------------------------------------------
-" Gitgutterz
+" Gitgutter
 " ------------------------------------------------------------------------------
 
 let g:gitgutter_sign_column_always = 1
@@ -571,6 +569,13 @@ let g:buftabline_numbers=2
 " ------------------------------------------------------------------------------
 
 nnoremap ,C :Bonly<CR>
+
+" ------------------------------------------------------------------------------
+" Auto Pairs
+" ------------------------------------------------------------------------------
+
+let g:AutoPairsFlyMode=1
+let g:AutoPairsShortcutBackInsert='<leader>b'
 
 " ==============================================================================
 " Autocommands
