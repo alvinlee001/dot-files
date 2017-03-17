@@ -4,9 +4,9 @@
 # Packages
 # ===========================
 
-.overcommit.yml
 .envrc
-
+.overcommit.yml
+.tool-versions
 
 # Logs and databases
 # ===========================

@@ -575,7 +575,7 @@ nnoremap ,C :Bonly<CR>
 " ------------------------------------------------------------------------------
 
 let g:AutoPairsFlyMode=1
-let g:AutoPairsShortcutBackInsert='<leader>b'
+let g:AutoPairsShortcutBackInsert='<C-v>'
 
 " ==============================================================================
 " Autocommands
