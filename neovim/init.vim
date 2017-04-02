@@ -44,6 +44,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips'
 " Neoformat
 Plug 'sbdchd/neoformat'
+" Ale (Linting Engine)
+Plug 'w0rp/ale'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -598,8 +600,3 @@ augroup END
 
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
-
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
