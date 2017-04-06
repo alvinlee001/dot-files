@@ -27,6 +27,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(common-aliases git tmux)
+GEOMETRY_PROMPT_PLUGINS=(exec_time git)
 
 # ==============================================================================
 # Plugins settings

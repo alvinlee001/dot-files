@@ -6,6 +6,7 @@
 
 .envrc
 .overcommit.yml
+.rubocop.yml
 .tool-versions
 
 # Logs and databases

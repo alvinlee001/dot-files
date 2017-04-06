@@ -1,20 +1,43 @@
-[credential]
-    helper = cache --timeout=3600
+[branch]
+    autosetuprebase = always
+
 [core]
     excludesfile = ~/.gitignore
-[push]
-    default = simple
+    editor = nvim
+    pager = "diff-so-fancy | less --tabs=4 -RFX"
+
 [color]
     status = always
     ui = true
-[core]
-    editor = nvim
-    pager = "diff-so-fancy | less --tabs=4 -RFX"
-[branch]
-    autosetuprebase = always
+
+[credential]
+    helper = cache --timeout=3600
+
 [diff]
-    tool = nvimdiff
-[difftool "nvimdiff"]
-    cmd = diff_wrapper "$LOCAL" "$REMOTE"
+    tool = icdiff
+
+[difftool]
+    prompt = false
+
+[difftool "icdiff"]
+    cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+
+[push]
+    default = simple
+    followTags = true
+
 [user]
     name = Faris Amali Alis
+    email = faris@starchild.my
+
+[status]
+    showUntrackedFiles = all
+
+[merge]
+    conflictstyle = diff3
+    ff = only
+
+[alias]
+    prune = fetch --prune
+    undo = reset --soft HEAD^
+    stash-all = stash save --include-untracked
