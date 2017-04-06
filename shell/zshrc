@@ -98,7 +98,6 @@ export PATH=$HOME/.cargo/bin:$HOME/.crenv/bin:$HOME/bin:/usr/local/bin:/usr/loca
 # ==============================================================================
 
 # direnv
-export DIRENV_LOG_FORMAT=
 eval "$(direnv hook zsh)"
 
 # crenv
