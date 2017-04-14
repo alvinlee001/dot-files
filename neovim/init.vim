@@ -40,8 +40,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/splitjoin.vim'
 " Easymotion
 Plug 'easymotion/vim-easymotion'
-" Ultisnips
-Plug 'SirVer/ultisnips'
 " Neoformat
 Plug 'sbdchd/neoformat'
 " Ale (Linting Engine)
@@ -79,9 +77,6 @@ Plug 'ap/vim-buftabline'
 " ------------------------------------------------------------------------------
 " Colorschemes
 " ------------------------------------------------------------------------------
-
-" Gotham
-Plug 'whatyouhide/vim-gotham'
 
 " ------------------------------------------------------------------------------
 " Utilities
@@ -191,28 +186,6 @@ filetype indent on
 " ==============================================================================
 
 syntax on
-colorscheme gotham256
-
-" Dracula overrides
-" hi LineNr guifg=#909194 guibg=#1c1d25 gui=NONE
-" hi Normal guifg=#f8f8f2 guibg=#1c1d25 gui=NONE
-" hi NonText guifg=#525563 guibg=#1c1d25 gui=NONE
-" hi SignColumn guifg=#909194 guibg=#1c1d25 gui=NONE
-
-" hi TabLine guifg=#666666 guibg=#1c1d25 gui=NONE
-" hi TabLineFill guifg=#333333 guibg=#1c1d25 gui=NONE
-
-" Highlight Visual mode
-hi Visual guifg=White guibg=Lightblue gui=NONE
-
-" Link highlight groups to improve buftabline color
-hi! link BufTabLineCurrent TabLineSel
-hi! link BufTabLineActive PmenuSel
-hi! link BufTabLineHidden TabLine
-hi! link BufTabLineFill TabLineFill
-
-" Lonsistent SignColumn
-hi clear SignColumn
 
 " ==============================================================================
 " Neovim specific settings
@@ -410,8 +383,8 @@ cnoremap qq qall
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
 " Tagbar
 nnoremap <silent> <F2> :TagbarToggle<CR>
-" Free
-" nnoremap <silent> <F3>
+" Fmt
+nnoremap <silent> <F3> :call utils#toggleFmt()<CR>
 " Toggle pastemode
 nnoremap <silent> <F4> :set paste!<CR> :set nopaste?<CR>
 " Source (reload configuration)
@@ -485,25 +458,11 @@ nnoremap <leader>dr :VtrSendCtrlD<CR>
 nnoremap <leader>ar :VtrAttachToPane<CR>
 
 " ------------------------------------------------------------------------------
-" Ultisnips
-" ------------------------------------------------------------------------------
-
-" initialization
-let g:UltiSnipsUsePythonVersion=3
-
-" Disable built-in cx-ck to be able to go backward
-inoremap <C-x><C-k> <NOP>
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsListSnippets='<C-s>'
-let g:UltiSnipsJumpForwardTrigger='<C-j>'
-let g:UltiSnipsJumpBackwardTrigger='<C-k>'
-
-" ------------------------------------------------------------------------------
 " Lightline
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'gotham256',
+      \ 'colorscheme': 'wombat',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]
