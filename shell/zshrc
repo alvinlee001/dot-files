@@ -90,7 +90,7 @@ export EDITOR='nvim'
 export MYNVIMRC='~/.config/nvim/init.vim'
 
 # PATH
-export PATH=$HOME/.cargo/bin:$HOME/.crenv/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.crenv/bin:$HOME/.nodenv/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 
 # ==============================================================================
@@ -105,3 +105,6 @@ eval "$(crenv init -)"
 
 # rbenv
 eval "$(rbenv init -)"
+
+# nodenv
+eval "$(nodenv init -)"
