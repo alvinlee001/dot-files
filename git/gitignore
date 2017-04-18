@@ -1,40 +1,35 @@
-# Compiled sources
-# ===========================
-
-# Packages
+# Envs & Lints
 # ===========================
 
 .envrc
 .overcommit.yml
 .rubocop.yml
+.scss-lint.yml
 .tool-versions
 
-# Logs and databases
-# ===========================
 
 # OS generated files
 # ===========================
 
 .DS_Store
 .DS_Store?
-._*
 .Trashes
-ehthumbs.db
+._*
 Thumbs.db
+ehthumbs.db
 
-# Editors
+# Vim
 # ===========================
 
-# VIM
-Session.vim
+*~
 .*.swo
 .*.swp
-*~
+Session.vim
 
-# Other
+# Misc.
 # ===========================
 
 .rake_tasks
+.starscope.db
 .tags
 tags
-.starscope.db
