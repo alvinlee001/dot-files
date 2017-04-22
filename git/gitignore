@@ -1,11 +1,15 @@
-# Envs & Lints
+# Envs
 # ===========================
-
 .envrc
+.go-version
+.ruby-version
+.tool-versions
+
+# Lints
+# ===========================
 .overcommit.yml
 .rubocop.yml
 .scss-lint.yml
-.tool-versions
 
 
 # OS generated files

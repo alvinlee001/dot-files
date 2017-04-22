@@ -56,25 +56,25 @@ source $ZSH/oh-my-zsh.sh
 # ------------------------------------------
 # Services
 # ------------------------------------------
-alias bs='brew services'
-alias bsl='brew services list'
+alias bs="brew services"
+alias bsl="brew services list"
 
 # ------------------------------------------
 # Applications
 # ------------------------------------------
-alias v='nvim'
-alias e='emacs -nw'
+alias v="nvim"
+alias e="emacs -nw"
 
 # ------------------------------------------
 # Language specific
 # ------------------------------------------
-alias rb='ruby'
-alias nd='node'
+alias rb="ruby"
+alias nd="node"
 
 # ------------------------------------------
 # Other
 # ------------------------------------------
-alias q='exit'
+alias q="exit"
 alias localip="ipconfig getifaddr en0"
 
 # ==============================================================================
@@ -86,11 +86,17 @@ export TERM=xterm-256color-italic
 [ -n "$TMUX" ] && export TERM=xterm-256color-italic
 
 # Setting default editor
-export EDITOR='nvim'
-export MYNVIMRC='~/.config/nvim/init.vim'
+export EDITOR="nvim"
+export MYNVIMRC="~/.config/nvim/init.vim"
+
+# Go environemnt
+export GOPATH=$HOME/Gocode
 
 # PATH
-export PATH=$HOME/.cargo/bin:$HOME/.crenv/bin:$HOME/.nodenv/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.crenv/bin:$HOME/.nodenv/bin:$HOME/.goenv/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 
 # ==============================================================================
@@ -108,3 +114,6 @@ eval "$(rbenv init -)"
 
 # nodenv
 eval "$(nodenv init -)"
+
+# goenv
+eval "$(goenv init -)"

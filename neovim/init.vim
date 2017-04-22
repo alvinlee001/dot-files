@@ -44,6 +44,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'sbdchd/neoformat'
 " Ale (Linting Engine)
 Plug 'w0rp/ale'
+" Snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
@@ -316,6 +321,10 @@ xnoremap >  >gv
 " Make . work with visually selected lines
 xnoremap . :norm.<CR>
 
+" Navigate popup menu
+inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+
 " ------------------------------------------------------------------------------
 " Common tasks
 " ------------------------------------------------------------------------------
@@ -452,9 +461,6 @@ map <silent> <leader>g :TestVisit<CR>
 
 " run tests with :T
 let test#strategy = "vtr"
-
-" vertical split instead of the default horizontal
-" let g:neoterm_position = "horizontal"
 
 " vtr maps
 nnoremap <leader>fr :VtrFocusRunner<CR>
