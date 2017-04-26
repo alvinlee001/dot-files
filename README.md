@@ -19,7 +19,7 @@ Libraries
   [nvim](https://neovim.io/),
   [oh-my-zsh](http://ohmyz.sh/),
   [tmux](https://gist.github.com/MohamedAlaa/2961058),
-  [vim-plug](https://github.com/junegunn/vim-plug),
+  [vim-plug](https://github.com/junegunn/vim-plug)
 
 #### Recommended
 
