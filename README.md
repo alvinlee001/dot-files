@@ -1,7 +1,7 @@
 ## Current (and ever-changing) development toolkit settings.
 
 ### Disclaimer
-`Makefile` DESTRUCTIVELY remove all existing dotfiles and symlinks related dotfile defined in this repository. I
+`Makefile` DESTRUCTIVELY removes all existing dotfiles and symlinks related dotfile defined in this repository. I
 recommend that you review the `Makefile` before installing.
 
 ### Dependencies
