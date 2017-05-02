@@ -92,6 +92,7 @@ Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 " Fugitive
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 " Surround (cs"')
 Plug 'tpope/vim-surround'
 " Matchit enhances jump motion
