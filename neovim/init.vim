@@ -218,7 +218,6 @@ endif
 " ------------------------------------------------------------------------------
 
 let g:mapleader="\<space>"
-imap jk <Esc>
 
 " ------------------------------------------------------------------------------
 " Insane Defaults
@@ -341,24 +340,6 @@ nnoremap ,p "+p
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-" Tags generation / navigation (:tselect to select from menu)
-nnoremap ]t :tn<CR>
-nnoremap [t :tp<CR>
-nnoremap ,ts :ts<CR>
-nnoremap ,tg :GTags<CR>
-
-" QuickFix navigation
-nnoremap ]q :cnext<CR>
-nnoremap [q :cprevious<CR>
-
-" Location list navigation
-nnoremap ]l :lnext<CR>
-nnoremap [l :lprevious<CR>
-
-" Error mnemonic (Neomake uses location list)
-nnoremap ]e :lnext<CR>
-nnoremap [e :lprevious<CR>
 
 " Reselect last-pasted text
 nnoremap gp `[v`]
@@ -569,3 +550,9 @@ augroup END
 
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
+
+" Aug autopairs to not auto close on rust's lifetime syntax
+augroup vimrc-rust-autopairs
+  autocmd!
+  autocmd FileType rust let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
+augroup END
