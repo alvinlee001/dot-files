@@ -109,6 +109,9 @@ eval "$(direnv hook zsh)"
 # crenv
 eval "$(crenv init -)"
 
+# exenv
+eval "$(exenv init -)"
+
 # rbenv
 eval "$(rbenv init -)"
 
