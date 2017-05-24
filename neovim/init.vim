@@ -108,9 +108,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 " Better start
 Plug 'mhinz/vim-startify'
-" orgmode
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
+" Vimwiki
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
