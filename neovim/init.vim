@@ -453,7 +453,7 @@ nnoremap <leader>ar :VtrAttachToPane<CR>
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'Dracula',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]

@@ -27,7 +27,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(bundler common-aliases git tmux vi-mode)
-GEOMETRY_PROMPT_PLUGINS=(exec_time git)
+GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git +rustup)
 
 # ==============================================================================
 # Plugins settings
@@ -91,6 +91,7 @@ export MYNVIMRC="~/.config/nvim/init.vim"
 
 # Environments
 export GOPATH=$HOME/Go
+export KEYTIMEOUT=1
 
 # PATH
 export PATH=$GOPATH/bin:$PATH
