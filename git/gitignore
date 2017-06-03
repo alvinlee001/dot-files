@@ -1,6 +1,5 @@
 # Envs
 # ===========================
-.envrc
 .go-version
 .ruby-version
 .tool-versions

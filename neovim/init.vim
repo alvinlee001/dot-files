@@ -43,9 +43,10 @@ Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
 " Snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'tomtom/tlib_vim'
+
 
 " ------------------------------------------------------------------------------
 " Productivity plugins
