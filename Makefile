@@ -2,14 +2,10 @@
 # @version 1.0
 #----------------------------------------------------------------------------------------
 
-all: @echo "YOLO!"
-	install_ag
-	install_git
-	install_nvim
-	install_rubyrc
-	install_tmux
-	install_zshrc
+.PHONY: all 
+all: install_ag install_git install_nvim install_rubyrc install_tmux install_zshrc
 
+.PHONY: install_ag
 install_ag: clean_ag
 	@echo "Symlinking .agignore"
 	ln -sf `pwd`/other/agignore ~/.agignore

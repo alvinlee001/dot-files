@@ -187,16 +187,6 @@ filetype plugin on
 filetype indent on
 
 " ==============================================================================
-" Colorscheme + Highlighting settings
-" ==============================================================================
-
-syntax on
-set background=dark
-colorscheme deep-space
-
-let g:deepspace_italics=1
-
-" ==============================================================================
 " Neovim specific settings
 " ==============================================================================
 
@@ -206,8 +196,16 @@ let g:python_host_prog='/usr/local/bin/python2'   " Set python 2 host program
 let g:python3_host_prog='/usr/local/bin/python3'  " Set python 3 host program
 
 if has('termguicolors')
- set termguicolors " Turn on true colors support
+  set termguicolors " Turn on true colors support
 endif
+
+" ==============================================================================
+" Colorscheme + Highlighting settings
+" ==============================================================================
+
+syntax on
+set background=dark
+colorscheme deep-space
 
 " ==============================================================================
 " Mappings
