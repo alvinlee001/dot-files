@@ -73,6 +73,7 @@ alias nd="node"
 # ------------------------------------------
 alias q="exit"
 alias localip="ipconfig getifaddr en0"
+alias externalip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # ==============================================================================
 # Exports
