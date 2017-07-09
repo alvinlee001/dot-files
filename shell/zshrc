@@ -90,6 +90,7 @@ export MYNVIMRC="~/.config/nvim/init.vim"
 # Environments
 export GOPATH=$HOME/Go
 export KEYTIMEOUT=1
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # PATH
 export PATH=$GOPATH/bin:$PATH
@@ -113,3 +114,6 @@ eval "$(rbenv init -)"
 
 # nodenv
 eval "$(nodenv init -)"
+
+# pyenv
+eval "$(pyenv init -)"

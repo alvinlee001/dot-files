@@ -126,7 +126,7 @@ set shell=/bin/zsh        " Setting shell to zsh
 set number                " Line numbers on
 set noshowmode            " Always show mode
 set showcmd               " Show commands as you type them
-set textwidth=120         " Text width is 120 characters
+set textwidth=125         " Text width is 120 characters
 set cmdheight=1           " Command line height
 set pumheight=10          " Completion window max size
 set noswapfile            " New buffers will be loaded without creating a swapfile

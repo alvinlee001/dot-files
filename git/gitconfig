@@ -27,8 +27,8 @@
     followTags = true
 
 [user]
-	name = Faris Amali Alis
-	email = faris@starchild.my
+    name = Faris Amali Alis
+    email = faris@starchild.my
 
 [status]
     showUntrackedFiles = all
