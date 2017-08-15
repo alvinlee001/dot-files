@@ -46,6 +46,10 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tomtom/tlib_vim'
+" Editorconfig
+Plug 'editorconfig/editorconfig-vim'
+" Emmet
+Plug 'mattn/emmet-vim'
 
 
 " ------------------------------------------------------------------------------
@@ -76,6 +80,8 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'itchyny/lightline.vim'
 " Buffers tabline
 Plug 'ap/vim-buftabline'
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " ------------------------------------------------------------------------------
 " Colorschemes
@@ -146,6 +152,7 @@ set nowrap                " Don't wrap lines
 set expandtab             " Use space characters in place of tab characters
 set softtabstop=2         " Two spaces soft tab stop
 set shiftwidth=2          " Two spaces when indenting
+set signcolumn=yes        " Always show signcolumns
 
 " ==============================================================================
 " Split settings
@@ -419,7 +426,6 @@ nnoremap <silent> _ :bp<CR>
 " Gitgutter
 " ------------------------------------------------------------------------------
 
-let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_added = 'xx'
 let g:gitgutter_sign_modified = 'yy'
 let g:gitgutter_sign_removed = 'zz'
@@ -536,6 +542,28 @@ let g:vimwiki_list = [{
     \ 'path': '~/.vimwiki/',
     \ 'diary_rel_path': 'journal/',
     \ 'diary_index': 'journal' }]
+
+" ------------------------------------------------------------------------------
+" Deoplete
+" ------------------------------------------------------------------------------
+
+let g:deoplete#enable_at_startup = 1
+
+" ------------------------------------------------------------------------------
+" Neoformat
+" ------------------------------------------------------------------------------
+let g:neoformat_verbose = 0
+let g:neoformat_try_formatprg = 1
+
+" Prettier settings
+autocmd FileType javascript setlocal
+      \ formatprg=prettier\ --stdin\ --parser=flow\ --single-quote\ --print-width=120\
+
+" ------------------------------------------------------------------------------
+" Polyglot
+" ------------------------------------------------------------------------------
+"
+let g:javascript_plugin_flow = 1
 
 " ==============================================================================
 " Autocommands
