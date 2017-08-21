@@ -21,6 +21,10 @@ ZSH_THEME="geometry/geometry"
 # Disable auto title setting
 DISABLE_AUTO_TITLE="true"
 
+# Locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # ==============================================================================
 # Plugins declaration
 # ==============================================================================

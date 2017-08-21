@@ -128,6 +128,7 @@ call plug#end()
 " Basic settings
 " ==============================================================================
 
+language en_US
 set shell=/bin/zsh        " Setting shell to zsh
 set number                " Line numbers on
 set noshowmode            " Always show mode

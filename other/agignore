@@ -2,7 +2,7 @@
 package-lock.json
 tmp/**
 dist/
-flows/npm/
+flow-typed/npm/
 node_modules/**
 bower_components/**
 .git
