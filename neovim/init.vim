@@ -380,22 +380,22 @@ cnoremap qq qall
 " F-key actions
 " ------------------------------------------------------------------------------
 
-" NERDTree wrapper
+" Toggle NERDTree
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
-" Tagbar
-nnoremap <silent> <F2> :TagbarToggle<CR>
-" Fmt
+" Toggle terminal
+nnoremap <silent> <F2> :terminal<CR>
+" Toggle fmt
 nnoremap <silent> <F3> :call utils#toggleFmt()<CR>
-" Toggle pastemode
-nnoremap <silent> <F4> :set paste!<CR> :set nopaste?<CR>
 " Source (reload configuration)
-nnoremap <silent> <F5> :source $MYNVIMRC<CR>
+nnoremap <silent> <F4> :source $MYVIMRC<CR>
+" Toggle pastemode
+nnoremap <silent> <F5> :set paste!<CR> :set nopaste?<CR>
 " Toggle search highlight
 nnoremap <silent> <F6> :set nohlsearch!<CR> :set nohlsearch?<CR>
 " Toggle white characters visibility
 nnoremap <silent> <F7> :set list!<CR> :set list?<CR>
 " New term buffer
-nnoremap <silent> <F8> :terminal<CR>
+nnoremap <silent> <F8> :TagbarToggle<CR>
 " Free
 " nnoremap <silent> <F9>
 " Free
