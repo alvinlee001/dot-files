@@ -376,14 +376,17 @@ vnoremap ,s :!sort<CR>
 cnoremap ww wqall
 cnoremap qq qall
 
+" Terminal-mode escape
+tnoremap <Esc> <C-\><C-n>
+
 " ------------------------------------------------------------------------------
 " F-key actions
 " ------------------------------------------------------------------------------
 
 " Toggle NERDTree
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
-" Toggle terminal
-nnoremap <silent> <F2> :terminal<CR>
+" Toggle lint
+nnoremap <silent> <F2> :ALELint<CR>
 " Toggle fmt
 nnoremap <silent> <F3> :call utils#toggleFmt()<CR>
 " Source (reload configuration)
@@ -427,11 +430,11 @@ nnoremap <silent> _ :bp<CR>
 " Gitgutter
 " ------------------------------------------------------------------------------
 
-let g:gitgutter_sign_added = 'xx'
-let g:gitgutter_sign_modified = 'yy'
-let g:gitgutter_sign_removed = 'zz'
-let g:gitgutter_sign_removed_first_line = '^^'
-let g:gitgutter_sign_modified_removed = 'ww'
+let g:gitgutter_sign_added='xx'
+let g:gitgutter_sign_modified='yy'
+let g:gitgutter_sign_removed='zz'
+let g:gitgutter_sign_removed_first_line='^^'
+let g:gitgutter_sign_modified_removed='ww'
 
 " ------------------------------------------------------------------------------
 " Vim-test + VTR
@@ -545,26 +548,29 @@ let g:vimwiki_list = [{
     \ 'diary_index': 'journal' }]
 
 " ------------------------------------------------------------------------------
+" Ale
+" ------------------------------------------------------------------------------
+
+let g:ale_lint_on_text_changed='never'
+let g:ale_lint_on_enter=0
+
+" ------------------------------------------------------------------------------
 " Deoplete
 " ------------------------------------------------------------------------------
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
 
 " ------------------------------------------------------------------------------
 " Neoformat
 " ------------------------------------------------------------------------------
 let g:neoformat_verbose = 0
-let g:neoformat_try_formatprg = 1
-
-" Prettier settings
-autocmd FileType javascript setlocal
-      \ formatprg=prettier\ --stdin\ --parser=flow\ --single-quote\ --print-width=120\
+let g:neoformat_try_formatprg=1
 
 " ------------------------------------------------------------------------------
 " Polyglot
 " ------------------------------------------------------------------------------
 "
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow=1
 
 " ==============================================================================
 " Autocommands
@@ -576,6 +582,13 @@ autocmd BufWritePre * call utils#stripTrailingWhitespaces()
 " Resize splits when the window is resized {{{
 autocmd VimResized * :wincmd =
 
+" Prettier settings
+autocmd FileType javascript setlocal
+      \ formatprg=prettier\ --stdin\ --parser=flow\ --single-quote\ --print-width=120\
+
+" Run checktime in buffers, but avoiding the "Command Line" (q:) window
+autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
+
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
   au!
@@ -584,9 +597,6 @@ augroup line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
-
-" Run checktime in buffers, but avoiding the "Command Line" (q:) window
-autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
 " Aug autopairs to not auto close on rust's lifetime syntax
 augroup vimrc-rust-autopairs
