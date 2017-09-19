@@ -113,7 +113,7 @@ function! g:utils#toggleFmt() abort
     if !exists('#toggleFmt#BufWritePre')
         augroup toggleFmt
             autocmd!
-            autocmd BufWritePre * undojoin | Neoformat
+            autocmd BufWritePre * Neoformat
         augroup END
         echom 'Neoformat enabled!'
     else
