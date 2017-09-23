@@ -59,3 +59,5 @@
         amend = commit --amend
         prune = fetch --prune
         stash-all = stash save --include-untracked
+[magit]
+	hideCampaign = true

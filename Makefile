@@ -2,7 +2,7 @@
 # @version 1.0
 #----------------------------------------------------------------------------------------
 
-.PHONY: all 
+.PHONY: all
 all: install_ag install_git install_nvim install_rubyrc install_tmux install_zshrc
 
 .PHONY: install_ag
@@ -62,3 +62,10 @@ install_zshrc: clean_zshrc
 
 clean_zshrc:
 	rm -rf ~/.zshrc
+
+install_emacs: clean_emacs
+	@echo "Symlinking init.el"
+	ln -sf `pwd`/emacs/init.el ~/.emacs.d/init.el
+
+clean_emacs:
+	rm -rf ~/.emacs.d/init.el
