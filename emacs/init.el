@@ -119,6 +119,13 @@
   :config
   (evil-mode t))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (setq exec-path-from-shell-check-startup-files nil)
+  :config
+  (exec-path-from-shell-initialize))
+
 (use-package multi-term
   :ensure t
   :init
@@ -139,11 +146,25 @@
 
 (use-package ivy
   :ensure t
+  :init
+  (progn
+    (use-package hydra
+      :ensure t))
   :config
   (ivy-mode t))
 
 (use-package magit
   :ensure t)
+
+;; -- modes
+(use-package markdown-mode
+  :ensure t
+  :commands
+  (markdown-mode gfm-mode)
+  :mode
+  (("\\.md\\'" . gfm-mode))
+  :init
+  (setq markdown-command "multimarkdown"))
 
 ;; -- bindings
 (global-set-key [f1] 'neotree-project-dir-toggle)
@@ -154,12 +175,14 @@
   (setq leader "SPC")
   :config
   (general-define-key :states '(normal)
-                      "C-u" 'evil-scroll-up)
+                      "C-u" 'evil-scroll-up
+                      "M-x" 'counsel-M-x)
 
   (general-define-key :states '(normal)
-                     :prefix leader
-                     "o" 'projectile-find-file
-                     "gs" 'magit-status)
+                      :prefix leader
+                      "o" 'projectile-find-file
+                      "p" 'projectile-switch-project
+                      "gs" 'magit-status)
 
   (general-define-key :states '(normal)
                       :keymaps 'neotree-mode-map

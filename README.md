@@ -1,5 +1,9 @@
 ## Current (and ever-changing) development toolkit settings.
 
+| Vim | Emacs |
+| - | - |
+| ![Vim](vim-tmux-screenshot.png) | ![Emacs](gnu-emacs-screenshot.png) |
+
 ### Disclaimer
 `Makefile` DESTRUCTIVELY removes all existing dotfiles and symlinks related dotfile defined in this repository. I
 recommend that you review the `Makefile` before installing.
