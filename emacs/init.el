@@ -158,6 +158,7 @@
 
   (general-define-key :states '(normal)
                      :prefix leader
+                     "o" 'projectile-find-file
                      "gs" 'magit-status)
 
   (general-define-key :states '(normal)
