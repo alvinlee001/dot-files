@@ -115,7 +115,11 @@
     (use-package evil-commentary
       :ensure t
       :config
-      (evil-commentary-mode)))
+      (evil-commentary-mode))
+    (use-package evil-magit
+      :ensure t)
+    (use-package evil-org
+      :ensure t))
   :config
   (evil-mode t))
 
@@ -137,6 +141,9 @@
   (ws-butler-global-mode t))
 
 ;; -- extensions
+(use-package org
+  :ensure t)
+
 (use-package projectile
   :ensure t
   :init
@@ -166,6 +173,13 @@
   :init
   (setq markdown-command "multimarkdown"))
 
+(use-package web-mode
+  :ensure t
+  :mode
+  (("\\.jsx\\'" . web-mode))
+  :init
+  (setq web-mode-markup-indent-offset 2))
+
 ;; -- bindings
 (global-set-key [f1] 'neotree-project-dir-toggle)
 
@@ -182,6 +196,11 @@
                       :prefix leader
                       "o" 'projectile-find-file
                       "p" 'projectile-switch-project
+                      "t" 'multi-term
+                      "cl" 'org-store-link
+                      "ca" 'org-agenda
+                      "cc" 'org-capture
+                      "cb" 'org-iswitchb
                       "gs" 'magit-status)
 
   (general-define-key :states '(normal)

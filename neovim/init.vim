@@ -220,7 +220,6 @@ colorscheme deep-space
 " ------------------------------------------------------------------------------
 
 let g:mapleader="\<space>"
-let maplocalleader = ","
 
 " ------------------------------------------------------------------------------
 " Insane Defaults
@@ -458,7 +457,7 @@ nnoremap <leader>ar :VtrAttachToPane<CR>
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'one',
       \ 'tab': {
       \   'active': [ 'filename' ],
       \   'inactive': [ 'filename' ]
