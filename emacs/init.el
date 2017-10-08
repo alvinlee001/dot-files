@@ -142,7 +142,18 @@
 
 ;; -- extensions
 (use-package org
-  :ensure t)
+  :ensure t
+  :init
+  (setq org-ellipsis " ▼")
+  (progn
+    (use-package org-bullets
+      :ensure t
+      :config
+      (add-hook 'org-mode-hook 'org-bullets-mode t))
+    (use-package org-journal
+      :ensure t
+      :init
+      (setq org-journal-dir "~/.org/journal"))))
 
 (use-package projectile
   :ensure t

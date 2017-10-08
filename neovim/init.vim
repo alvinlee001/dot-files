@@ -37,11 +37,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'sbdchd/neoformat'
 " Ale (Linting Engine)
 Plug 'w0rp/ale'
-" Snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'tomtom/tlib_vim'
 " Editorconfig
 Plug 'editorconfig/editorconfig-vim'
 " Emmet
@@ -103,16 +98,12 @@ Plug 'tmhedberg/matchit'
 " vim + tmux clipboard
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-" Gitgutterz
+" Gitgutter
 Plug 'airblade/vim-gitgutter'
-" Multiple cursors
-Plug 'terryma/vim-multiple-cursors'
 " Tagbar
 Plug 'majutsushi/tagbar'
 " Better start
 Plug 'mhinz/vim-startify'
-" Vimwiki
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
