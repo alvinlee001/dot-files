@@ -2,6 +2,7 @@
 # ===========================
 .envrc
 .go-version
+.node-version
 .ruby-version
 .tool-versions
 
@@ -28,6 +29,7 @@ ehthumbs.db
 *~
 .*.swo
 .*.swp
+.nvimrc
 Session.vim
 
 # Misc.

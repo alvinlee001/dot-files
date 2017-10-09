@@ -141,6 +141,7 @@ set expandtab             " Use space characters in place of tab characters
 set softtabstop=2         " Two spaces soft tab stop
 set shiftwidth=2          " Two spaces when indenting
 set signcolumn=yes        " Always show signcolumns
+set exrc                  " Folder specific configuration
 
 " ==============================================================================
 " Split settings
@@ -549,13 +550,14 @@ let g:deoplete#enable_at_startup=1
 " ------------------------------------------------------------------------------
 " Neoformat
 " ------------------------------------------------------------------------------
+
 let g:neoformat_verbose = 0
 let g:neoformat_try_formatprg=1
 
 " ------------------------------------------------------------------------------
 " Polyglot
 " ------------------------------------------------------------------------------
-"
+
 let g:javascript_plugin_flow=1
 
 " ==============================================================================
