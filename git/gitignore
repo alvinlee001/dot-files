@@ -4,6 +4,7 @@
 .go-version
 .node-version
 .ruby-version
+.java-version
 .tool-versions
 
 # Lints
@@ -12,10 +13,8 @@
 .rubocop.yml
 .scss-lint.yml
 
-
 # OS generated files
 # ===========================
-
 .DS_Store
 .DS_Store?
 .Trashes
@@ -23,18 +22,17 @@
 Thumbs.db
 ehthumbs.db
 
-# Vim
+# Editors
 # ===========================
-
 *~
 .*.swo
 .*.swp
 .nvimrc
+.vscode
 Session.vim
 
 # Misc.
 # ===========================
-
 .rake_tasks
 .starscope.db
 .tags
