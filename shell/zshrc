@@ -108,20 +108,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Hooks
 # ==============================================================================
 
-# direnv
-eval "$(direnv hook zsh)"
-
-# exenv
-eval "$(exenv init -)"
-
-# rbenv
-eval "$(rbenv init -)"
-
-# nodenv
-eval "$(nodenv init -)"
-
-# pyenv
-eval "$(pyenv init -)"
-
-# jenv
 eval "$(jenv init -)"
+eval "$(exenv init -)"
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+eval "$(direnv hook zsh)"

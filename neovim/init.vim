@@ -13,10 +13,8 @@ call plug#begin('~/.config/nvim/plugged')
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " START-OF-PLUG
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" ------------------------------------------------------------------------------
-" Language related plugins
-" ------------------------------------------------------------------------------
-
+" Colorscheme
+Plug 'tyrannicaltoucan/vim-deep-space'
 " Automatically closing pair stuff
 Plug 'jiangmiao/auto-pairs'
 " Commenting support (gc)
@@ -41,30 +39,14 @@ Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 " Emmet
 Plug 'mattn/emmet-vim'
-
-
-" ------------------------------------------------------------------------------
-" Productivity plugins
-" ------------------------------------------------------------------------------
-
 " Running tests with different ganularities
 Plug 'janko-m/vim-test'
 " VTR
 Plug 'christoomey/vim-tmux-runner'
 " Git commit message
 Plug 'rhysd/committia.vim'
-
-" ------------------------------------------------------------------------------
-" Fuzzy searcher
-" ------------------------------------------------------------------------------
-
 " fzf binding
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-
-" ------------------------------------------------------------------------------
-" Interface uplift
-" ------------------------------------------------------------------------------
-
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 " Lightline
@@ -73,17 +55,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" ------------------------------------------------------------------------------
-" Colorschemes
-" ------------------------------------------------------------------------------
-
-Plug 'tyrannicaltoucan/vim-deep-space'
-
-" ------------------------------------------------------------------------------
-" Utilities
-" ------------------------------------------------------------------------------
-
+Plug 'roxma/nvim-completion-manager'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
 " Intelligent buffer closing
@@ -104,6 +77,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 " Better start
 Plug 'mhinz/vim-startify'
+" Echodoc
+Plug 'Shougo/echodoc.vim'
+" Wakatime
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -372,8 +349,8 @@ tnoremap <Esc> <C-\><C-n>
 
 " Toggle NERDTree
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
-" Toggle lint
-nnoremap <silent> <F2> :ALELint<CR>
+" Toggle tagbar
+nnoremap <silent> <F2> :TagbarToggle<CR>
 " Toggle fmt
 nnoremap <silent> <F3> :call utils#toggleFmt()<CR>
 " Source (reload configuration)
@@ -384,8 +361,8 @@ nnoremap <silent> <F5> :set paste!<CR> :set nopaste?<CR>
 nnoremap <silent> <F6> :set nohlsearch!<CR> :set nohlsearch?<CR>
 " Toggle white characters visibility
 nnoremap <silent> <F7> :set list!<CR> :set list?<CR>
-" New term buffer
-nnoremap <silent> <F8> :TagbarToggle<CR>
+" Free
+" nnoremap <silent> <F8>
 " Free
 " nnoremap <silent> <F9>
 " Free
@@ -546,12 +523,13 @@ let g:ale_lint_on_enter=0
 " ------------------------------------------------------------------------------
 
 let g:deoplete#enable_at_startup=1
+let g:deoplete#max_menu_width=0
 
 " ------------------------------------------------------------------------------
 " Neoformat
 " ------------------------------------------------------------------------------
 
-let g:neoformat_verbose = 0
+let g:neoformat_verbose=0
 let g:neoformat_try_formatprg=1
 
 " ------------------------------------------------------------------------------
