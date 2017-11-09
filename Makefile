@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------------------
 
 .PHONY: all
-all: install_ag install_git install_nvim install_rubyrc install_tmux install_zshrc
+all: install_ag install_git install_nvim install_ideavim install_rubyrc install_tmux install_zshrc
 
 .PHONY: install_ag
 install_ag: clean_ag
@@ -35,6 +35,10 @@ install_nvim: clean_nvim
 
 clean_nvim:
 	rm -rf ~/.config/nvim
+
+install_ideavim: clean_ideavim
+	@echo "Symlinking .ideavimrc"
+	ln -sf `pwd`/ideavim/ideavimrc ~/.ideavimrc
 
 install_rubyrc: clean_rubyrc
 	@echo "Symlinking .gemrc"
