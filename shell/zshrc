@@ -93,8 +93,8 @@ export EDITOR="nvim"
 export MYNVIMRC="~/.config/nvim/init.vim"
 
 # Environments
-export GOPATH=$HOME/Go
 export KEYTIMEOUT=1
+export GOPATH=$HOME/Go
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # PATH

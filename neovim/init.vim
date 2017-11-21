@@ -79,8 +79,8 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 " Echodoc
 Plug 'Shougo/echodoc.vim'
-" Wakatime
-Plug 'wakatime/vim-wakatime'
+" table-mode
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
@@ -503,15 +503,6 @@ let g:AutoPairsFlyMode=1
 let g:AutoPairsShortcutBackInsert='<C-v>'
 
 " ------------------------------------------------------------------------------
-" Vimwiki
-" ------------------------------------------------------------------------------
-
-let g:vimwiki_list = [{
-    \ 'path': '~/.vimwiki/',
-    \ 'diary_rel_path': 'journal/',
-    \ 'diary_index': 'journal' }]
-
-" ------------------------------------------------------------------------------
 " Ale
 " ------------------------------------------------------------------------------
 
@@ -537,6 +528,16 @@ let g:neoformat_try_formatprg=1
 " ------------------------------------------------------------------------------
 
 let g:javascript_plugin_flow=1
+
+" ------------------------------------------------------------------------------
+" LanguageClient
+" ------------------------------------------------------------------------------
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+
+let g:LanguageClient_autoStart = 1
 
 " ==============================================================================
 " Autocommands
