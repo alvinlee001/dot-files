@@ -94,7 +94,8 @@ export MYNVIMRC="~/.config/nvim/init.vim"
 
 # Environments
 export KEYTIMEOUT=1
-export GOPATH=$HOME/Go
+export WORKSPACE=$HOME/Workspace
+export GOPATH=$WORKSPACE/gospace
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # PATH
