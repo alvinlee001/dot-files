@@ -13,74 +13,76 @@ call plug#begin('~/.config/nvim/plugged')
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " START-OF-PLUG
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Colorscheme
+" colorscheme
 Plug 'tyrannicaltoucan/vim-deep-space'
-" Automatically closing pair stuff
+" automatically closing pair stuff
 Plug 'jiangmiao/auto-pairs'
-" Commenting support (gc)
+" commenting support (gc)
 Plug 'tpope/vim-commentary'
-" CamelCase and snake_case motions
+" camelCase and snake_case motions
 Plug 'bkad/CamelCaseMotion'
-" Heuristically set indent settings
+" heuristically set indent settings
 Plug 'tpope/vim-sleuth'
-" Highlighting for all
+" highlighting for all
 Plug 'sheerun/vim-polyglot'
-" Replace selection with paste
+" replace selection with paste
 Plug 'vim-scripts/ReplaceWithRegister'
-" Split - Join multilines
+" split - join multilines
 Plug 'AndrewRadev/splitjoin.vim'
-" Easymotion
+" easymotion
 Plug 'easymotion/vim-easymotion'
-" Neoformat
+" neoformat
 Plug 'sbdchd/neoformat'
-" Ale (Linting Engine)
+" ale (Linting Engine)
 Plug 'w0rp/ale'
-" Editorconfig
+" editorconfig
 Plug 'editorconfig/editorconfig-vim'
-" Emmet
+" emmet
 Plug 'mattn/emmet-vim'
-" Running tests with different ganularities
+" running tests with different ganularities
 Plug 'janko-m/vim-test'
-" VTR
+" vtr
 Plug 'christoomey/vim-tmux-runner'
-" Git commit message
+" git commit message
 Plug 'rhysd/committia.vim'
 " fzf binding
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-" Nerdtree file browser
+" nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
-" Lightline
+" lightline
 Plug 'itchyny/lightline.vim'
-" Buffers tabline
+" buffers tabline
 Plug 'ap/vim-buftabline'
-" Autocomplete
+" autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-completion-manager'
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-" Delete all but current buffer
+" delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
-" Intelligent buffer closing
+" intelligent buffer closing
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
-" Fugitive
+" fugitive
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-" Surround (cs"')
+" surround (cs"')
 Plug 'tpope/vim-surround'
-" Matchit enhances jump motion
+" matchit enhances jump motion
 Plug 'tmhedberg/matchit'
 " vim + tmux clipboard
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-" Gitgutter
+" gitgutter
 Plug 'airblade/vim-gitgutter'
-" Tagbar
+" tagbar
 Plug 'majutsushi/tagbar'
-" Better start
+" better start
 Plug 'mhinz/vim-startify'
-" Echodoc
+" echodoc
 Plug 'Shougo/echodoc.vim'
 " table-mode
 Plug 'dhruvasagar/vim-table-mode'
+" reasonml
+Plug 'reasonml-editor/vim-reason-plus'
 
 call plug#end()
 
@@ -535,9 +537,13 @@ let g:javascript_plugin_flow=1
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ }
 
-let g:LanguageClient_autoStart = 1
+let g:LanguageClient_autoStart=1
+let g:LanguageClient_selectionUI='fzf'
+let g:LanguageClient_diagnosticsEnable=0
 
 " ==============================================================================
 " Autocommands
