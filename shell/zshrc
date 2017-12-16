@@ -31,7 +31,7 @@ export LANG=en_US.UTF-8
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(bundler common-aliases git tmux vi-mode zsh-completions zsh-syntax-highlighting)
-GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git +rustup)
+GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git rustup)
 
 # ==============================================================================
 # Plugins settings
