@@ -52,7 +52,7 @@
 
 [merge]
         conflictstyle = diff3
-        ff = only
+        ; ff = only
 
 [alias]
         rank = shortlog -sn --no-merges

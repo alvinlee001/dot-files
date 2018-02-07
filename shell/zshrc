@@ -29,13 +29,8 @@ export LANG=en_US.UTF-8
 # Plugins declaration
 # ==============================================================================
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(bundler common-aliases git tmux vi-mode zsh-completions zsh-syntax-highlighting)
+plugins=(bundler common-aliases dirhistory git tmux osx vi-mode zsh-completions zsh-syntax-highlighting)
 GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git rustup)
-
-# ==============================================================================
-# Plugins settings
-# ==============================================================================
 
 # ==============================================================================
 # Sources
@@ -49,6 +44,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# ------------------------------------------
+# Setopts
+# ------------------------------------------
+
+# Preserve history per pane
+setopt nosharehistory
 
 # ==============================================================================
 # My additional aliases
@@ -101,7 +103,11 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.crenv/bin:$HOME/.nodenv/bin:$HOME/.goenv/bin:$HOME/.jenv/bin:$PATH
+export PATH=$HOME/.crenv/bin:$PATH
+export PATH=$HOME/.goenv/bin:$PATH
+export PATH=$HOME/.jenv/bin:$PATH
+export PATH=$HOME/.nodev/bin:$PATH
+export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 
@@ -111,6 +117,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 eval "$(jenv init -)"
 eval "$(exenv init -)"
+eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
