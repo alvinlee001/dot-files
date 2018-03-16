@@ -1,7 +1,3 @@
-#----------------------------------------------------------------------------------------
-# @version 1.0
-#----------------------------------------------------------------------------------------
-
 .PHONY: all
 all: install_ag install_git install_nvim install_ideavim install_rubyrc install_tmux install_zshrc
 

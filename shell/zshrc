@@ -53,7 +53,7 @@ source $ZSH/oh-my-zsh.sh
 setopt nosharehistory
 
 # ==============================================================================
-# My additional aliases
+# Aliases
 # ==============================================================================
 
 # ------------------------------------------
@@ -81,6 +81,8 @@ alias nd="node"
 alias q="exit"
 alias localip="ipconfig getifaddr en0"
 alias externalip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+[ -f ~/.rocket-aliases.zsh ] && source ~/.rocket-aliases.zsh
 
 # ==============================================================================
 # Exports
