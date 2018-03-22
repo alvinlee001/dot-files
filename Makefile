@@ -1,5 +1,5 @@
 .PHONY: all
-all: install_ag install_git install_nvim install_ideavim install_rubyrc install_tmux install_zshrc
+all: install_ag install_git install_nvim install_ideavim install_onivim install_rubyrc install_tmux install_zshrc
 
 .PHONY: install_ag
 install_ag: clean_ag
@@ -35,6 +35,16 @@ clean_nvim:
 install_ideavim: clean_ideavim
 	@echo "Symlinking .ideavimrc"
 	ln -sf `pwd`/ideavim/ideavimrc ~/.ideavimrc
+
+clean_ideavim:
+	rm -rf ~/.ideavimrc
+
+install_onivim: clean_onivim
+	@echo "Symlinking config.js"
+	ln -sf `pwd`/onivim/config.js ~/.oni/config.js
+
+clean_onivim:
+	rm -rf ~/.oni/config.js
 
 install_rubyrc: clean_rubyrc
 	@echo "Symlinking .gemrc"
