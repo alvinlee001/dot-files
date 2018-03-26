@@ -56,7 +56,10 @@ Plug 'ap/vim-buftabline'
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-completion-manager'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
 " intelligent buffer closing
@@ -539,12 +542,17 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'vue': ['vls']
     \ }
 
 let g:LanguageClient_autoStart=1
 let g:LanguageClient_selectionUI='fzf'
 let g:LanguageClient_diagnosticsEnable=0
 
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
 " ------------------------------------------------------------------------------
 " Table Mode

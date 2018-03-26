@@ -100,7 +100,7 @@ export MYNVIMRC="~/.config/nvim/init.vim"
 export KEYTIMEOUT=1
 export WORKSPACE=$HOME/Workspace
 export GOPATH=$WORKSPACE/gospace
-export ERL_AFLAGS="-kernel shell_history enabled"
+export PYENV_ROOT=$HOME/.pyenv
 
 # PATH
 export PATH=$GOPATH/bin:$PATH
