@@ -76,12 +76,18 @@ alias rb="ruby"
 alias nd="node"
 
 # ------------------------------------------
+# Forks
+# ------------------------------------------
+alias fparcel="node ~/Forks/parcel/bin/cli.js"
+
+# ------------------------------------------
 # Other
 # ------------------------------------------
 alias q="exit"
 alias localip="ipconfig getifaddr en0"
 alias externalip="dig +short myip.opendns.com @resolver1.opendns.com"
 
+# Uncommited
 [ -f ~/.rocket-aliases.zsh ] && source ~/.rocket-aliases.zsh
 
 # ==============================================================================
