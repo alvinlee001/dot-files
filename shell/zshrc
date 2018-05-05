@@ -78,7 +78,7 @@ alias nd="node"
 # ------------------------------------------
 # Forks
 # ------------------------------------------
-alias fparcel="node ~/Forks/parcel/bin/cli.js"
+alias fparcel="node --inspect ~/Forks/parcel/bin/cli.js"
 
 # ------------------------------------------
 # Other

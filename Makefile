@@ -41,7 +41,7 @@ clean_ideavim:
 
 install_onivim: clean_onivim
 	@echo "Symlinking config.js"
-	ln -sf `pwd`/onivim/config.js ~/.oni/config.js
+	ln -sf `pwd`/onivim/config.js ~/.config/oni/config.js
 
 clean_onivim:
 	rm -rf ~/.oni/config.js
