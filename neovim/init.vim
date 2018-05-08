@@ -87,6 +87,26 @@ Plug 'dhruvasagar/vim-table-mode'
 " reasonml
 Plug 'reasonml-editor/vim-reason-plus'
 
+" Alvin Start
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Galooshi/import-js'
+Plug 'galooshi/vim-import-js'
+Plug 'aradunovic/perun.vim'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'chriskempson/tomorrow-theme'
+Plug 'chriskempson/base16-vim'
+Plug 'miconda/lucariox.vim'
+"Auto close tags
+Plug 'alvan/vim-closetag'
+
+"Snippets
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
+
+" Alvin End
 call plug#end()
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,6 +135,7 @@ set nostartofline         " Prevent cursor from moving to beginning of line when
 set virtualedit=block     " To be able to select past EOL in visual block mode
 set nojoinspaces          " No extra space when joining a line which ends with . ? !
 set scrolloff=5           " Scroll when closing to top or bottom of the screen
+set mouse=a               " Scrolling with touchpad
 set updatetime=1000       " Update time used to create swap file or other things
 set suffixesadd+=.js,.rb  " Add js and ruby files to suffixes
 set synmaxcol=160         " Don't try to syntax highlight minified files
@@ -391,6 +412,22 @@ nnoremap <silent> <C-Down> :resize -1<CR>
 nnoremap <silent> + :bn<CR>
 nnoremap <silent> _ :bp<CR>
 
+
+" File and Window Management
+inoremap <leader>w <Esc>:w<CR>
+nnoremap <leader>w :w<CR>
+
+inoremap <leader>q <ESC>:q<CR>
+nnoremap <leader>q :q<CR>
+
+inoremap <leader>x <ESC>:x<CR>
+nnoremap <leader>x :x<CR>
+
+nnoremap <leader>e :Ex<CR>
+nnoremap <leader>t :tabnew<CR>:Ex<CR>
+nnoremap <leader>v :vsplit<CR>:w<CR>:Ex<CR>
+nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
+
 " ==============================================================================
 " Plugin settings
 " ==============================================================================
@@ -520,6 +557,7 @@ let g:ale_lint_on_enter=0
 
 let g:deoplete#enable_at_startup=1
 let g:deoplete#max_menu_width=0
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ------------------------------------------------------------------------------
 " Neoformat
@@ -553,6 +591,36 @@ let g:LanguageClient_diagnosticsEnable=0
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" ------------------------------------------------------------------------------
+" CtrlP
+" ------------------------------------------------------------------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" ------------------------------------------------------------------------------
+" CloseTag
+" ------------------------------------------------------------------------------
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js"
+
+" ------------------------------------------------------------------------------
+" Prettier
+" ------------------------------------------------------------------------------
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+let g:prettier#config#bracket_spacing = 'true'
+
+" ------------------------------------------------------------------------------
+" UltiSnips
+" ------------------------------------------------------------------------------
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetDirectories=['~/.config/nvim/plugged/vim-snippets/UltiSnips','~/.config/nvim/plugged/vim-react-snippets/UltiSnips']
+let g:UltiSnipsExpandTrigger="<C-l>"
 
 " ------------------------------------------------------------------------------
 " Table Mode
