@@ -100,7 +100,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'miconda/lucariox.vim'
 "Auto close tags
 Plug 'alvan/vim-closetag'
-
+"ESLint auto fix
+Plug 'ruanyl/vim-fixmyjs'
 "Snippets
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
@@ -120,6 +121,7 @@ call plug#end()
 language en_US
 set shell=/bin/zsh        " Setting shell to zsh
 set number                " Line numbers on
+set rnu                   " Relative line numbers on
 set noshowmode            " Always show mode
 set showcmd               " Show commands as you type them
 set textwidth=125         " Text width is 120 characters
@@ -204,7 +206,7 @@ endif
 
 syntax on
 set background=dark
-colorscheme deep-space
+colorscheme base16-oceanicnext
 
 " ==============================================================================
 " Mappings
@@ -414,14 +416,9 @@ nnoremap <silent> _ :bp<CR>
 
 
 " File and Window Management
-inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 
-inoremap <leader>q <ESC>:q<CR>
 nnoremap <leader>q :q<CR>
-
-inoremap <leader>x <ESC>:x<CR>
-nnoremap <leader>x :x<CR>
 
 nnoremap <leader>e :Ex<CR>
 nnoremap <leader>t :tabnew<CR>:Ex<CR>
@@ -622,6 +619,11 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:UltiSnipsSnippetDirectories=['~/.config/nvim/plugged/vim-snippets/UltiSnips','~/.config/nvim/plugged/vim-react-snippets/UltiSnips']
 let g:UltiSnipsExpandTrigger="<C-l>"
 
+
+" ------------------------------------------------------------------------------
+" Fixmyjs
+" ------------------------------------------------------------------------------
+noremap <Leader><Leader>f :Fixmyjs<CR>
 " ------------------------------------------------------------------------------
 " Table Mode
 " ------------------------------------------------------------------------------
