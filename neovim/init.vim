@@ -58,7 +58,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " lightline
 Plug 'itchyny/lightline.vim'
 " buffers tabline
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-completion-manager'
@@ -240,7 +240,7 @@ set background=dark
 colorscheme base16-darktooth
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
-
+let g:airline#extensions#tabline#enabled = 1
 
 " ==============================================================================
 " Mappings
