@@ -574,7 +574,7 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:fzf_layout = { 'down': '~30%'}
 
 nnoremap <leader>o :FZF<CR>
-nnoremap <leader>gg :Ag<Space>
+nnoremap <leader>a :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 
 " ------------------------------------------------------------------------------
