@@ -241,6 +241,7 @@ colorscheme base16-darktooth
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'jsformatter'
 
 " ==============================================================================
 " Mappings
@@ -561,8 +562,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
