@@ -125,6 +125,11 @@ Plug 'wakatime/vim-wakatime'
 " Icons for nerdtree
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Match tags
+Plug 'Valloric/MatchTagAlways'
+" Airline themes
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Alvin End
 call plug#end()
@@ -220,7 +225,7 @@ if has('termguicolors')
 endif
 
 " ==============================================================================
-" Colorscheme + Highlighting settings
+" Colorscheme + Highlighting + Airline settings
 " ==============================================================================
 
 syntax on
@@ -230,6 +235,9 @@ set background=dark
 " colorscheme base16-paraiso
 " colorscheme base16-solarflare
 colorscheme base16-darktooth
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
+
 
 " ==============================================================================
 " Mappings
@@ -699,6 +707,14 @@ autocmd VimResized * :wincmd =
 " Prettier settings
 autocmd FileType javascript setlocal
       \ formatprg=prettier\ --stdin\ --parser=flow\ --single-quote\ --print-width=120\
+" MatchTagAlways
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript.jsx': 1,
+    \}
 
 " phpcomplete settings
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
