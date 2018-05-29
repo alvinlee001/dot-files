@@ -53,6 +53,8 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'skwp/greplace.vim'
 " nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+" nerdtree git plugin
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " lightline
 Plug 'itchyny/lightline.vim'
 " buffers tabline
@@ -130,7 +132,8 @@ Plug 'Valloric/MatchTagAlways'
 " Airline themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+" css color preview
+Plug 'gorodinskiy/vim-coloresque'
 " Alvin End
 call plug#end()
 
@@ -402,6 +405,9 @@ cnoremap qq qall
 " Terminal-mode escape
 tnoremap <Esc> <C-\><C-n>
 
+" less key stroke
+nnoremap ; :
+
 " ------------------------------------------------------------------------------
 " F-key actions
 " ------------------------------------------------------------------------------
@@ -534,14 +540,32 @@ vnoremap <leader>gH :Gbrowse<CR>
 " NERDTree
 " ------------------------------------------------------------------------------
 
-let g:NERDTreeMinimalUI=1
+let g:NERDTreeMinimalUI=0
 let g:NERDTreeWinSize=40
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeShowHidden=1
-let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeIgnore=['node_modules$[[dir]]']
 let g:NERDTreeSortOrder=['\/$','^\.','^[a-z]','^[A-Z]']
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 
 " ------------------------------------------------------------------------------
 " FZF
