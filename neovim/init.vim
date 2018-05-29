@@ -15,6 +15,8 @@ call plug#begin('~/.config/nvim/plugged')
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " colorscheme
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc'
 " automatically closing pair stuff
 Plug 'jiangmiao/auto-pairs'
 " commenting support (gc)
@@ -47,6 +49,8 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'rhysd/committia.vim'
 " fzf binding
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+" global replace
+Plug 'skwp/greplace.vim'
 " nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 " lightline
@@ -106,6 +110,21 @@ Plug 'ruanyl/vim-fixmyjs'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
+" For focus
+Plug 'junegunn/goyo.vim'
+" PHP plugins
+Plug 'StanAngeloff/php.vim'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'ervandew/supertab'
+" Plugin to record time used in programming
+Plug 'wakatime/vim-wakatime'
+" Icons for nerdtree
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Alvin End
 call plug#end()
@@ -136,7 +155,7 @@ set matchtime=2           " How many tenths of a second to blink when matching b
 set nostartofline         " Prevent cursor from moving to beginning of line when switching buffers
 set virtualedit=block     " To be able to select past EOL in visual block mode
 set nojoinspaces          " No extra space when joining a line which ends with . ? !
-set scrolloff=5           " Scroll when closing to top or bottom of the screen
+set scrolloff=10           " Scroll when closing to top or bottom of the screen
 set mouse=a               " Scrolling with touchpad
 set updatetime=1000       " Update time used to create swap file or other things
 set suffixesadd+=.js,.rb  " Add js and ruby files to suffixes
@@ -206,7 +225,11 @@ endif
 
 syntax on
 set background=dark
-colorscheme base16-oceanicnext
+" My favorite themes, color is good!!
+" colorscheme base16-oceanicnext
+" colorscheme base16-paraiso
+" colorscheme base16-solarflare
+colorscheme base16-darktooth
 
 " ==============================================================================
 " Mappings
@@ -523,6 +546,16 @@ nnoremap <leader>gg :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 
 " ------------------------------------------------------------------------------
+" GReplace
+" ------------------------------------------------------------------------------
+
+set grepprg=ag
+
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
+nnoremap <leader><leader>r :Gsearch<cr>
+
+" ------------------------------------------------------------------------------
 " BufTabLine
 " ------------------------------------------------------------------------------
 
@@ -555,6 +588,8 @@ let g:ale_lint_on_enter=0
 let g:deoplete#enable_at_startup=1
 let g:deoplete#max_menu_width=0
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 
 " ------------------------------------------------------------------------------
 " Neoformat
@@ -586,8 +621,22 @@ let g:LanguageClient_autoStart=1
 let g:LanguageClient_selectionUI='fzf'
 let g:LanguageClient_diagnosticsEnable=0
 
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" only start lsp when opening php files
+au filetype php LanguageClientStart
+
+" use LSP completion on ctrl-x ctrl-o as fallback for padawan in legacy projects
+au filetype php set omnifunc=LanguageClient#complete
+
+" no need for diagnostics, we're going to use neomake for that
+let g:LanguageClient_diagnosticsEnable  = 0
+let g:LanguageClient_signColumnAlwaysOn = 0
+
+" I only use these 3 mappings
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
+nnoremap K :call LanguageClient_textDocument_hover()<cr>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
@@ -595,7 +644,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
+nnoremap <Leader>p :CtrlPMRUFiles<cr>
 " ------------------------------------------------------------------------------
 " CloseTag
 " ------------------------------------------------------------------------------
@@ -605,6 +654,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js"
 " Prettier
 " ------------------------------------------------------------------------------
 let g:prettier#quickfix_enabled = 0
+let g:prettier#config#semi = 'false'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 let g:prettier#config#bracket_spacing = 'true'
@@ -612,18 +662,24 @@ let g:prettier#config#bracket_spacing = 'true'
 " ------------------------------------------------------------------------------
 " UltiSnips
 " ------------------------------------------------------------------------------
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 "let g:UltiSnipsSnippetDirectories=['~/.config/nvim/plugged/vim-snippets/UltiSnips','~/.config/nvim/plugged/vim-react-snippets/UltiSnips']
-let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsExpandTrigger="<c-l>"
 
+
+" ------------------------------------------------------------------------------
+" PHP-CS-Fixer
+" ------------------------------------------------------------------------------
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
 " ------------------------------------------------------------------------------
 " Fixmyjs
 " ------------------------------------------------------------------------------
 noremap <Leader><Leader>f :Fixmyjs<CR>
+
 " ------------------------------------------------------------------------------
 " Table Mode
 " ------------------------------------------------------------------------------
@@ -644,6 +700,50 @@ autocmd VimResized * :wincmd =
 autocmd FileType javascript setlocal
       \ formatprg=prettier\ --stdin\ --parser=flow\ --single-quote\ --print-width=120\
 
+" phpcomplete settings
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:complete_index_composer_command = "composer.phar"
+function! GenTags()
+    if isdirectory("./vendor")
+    echo '(re)Generating framework tags'
+    execute "!php artisan ide-helper:generate"
+    echo '(re)Generating tags'
+    execute "!ctags -R --filter-terminator=php"
+    else
+    echo 'Not in a framework project'
+    if filereadable("tags")
+    echo "Regenerating tags..."
+    execute "!ctags -R --filter-terminator=php"
+    else
+    let choice = confirm("Create tags?", "&Yes\n&No", 2)
+    if choice == 1
+    echo "Generating tags..."
+    execute "!ctags -R --filter-terminator=php"
+    endif
+    endif
+    endif
+
+    :endfunction
+
+    command! -nargs=* GenTags call GenTags()
+GenTags()
+
+" vim-php-namespace settings
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
+
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
@@ -661,3 +761,13 @@ augroup vimrc-rust-autopairs
   autocmd!
   autocmd FileType rust let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
 augroup END
+
+set foldmethod=syntax
+" set foldlevelstart=1
+
+set foldlevel=99
+let javaScript_fold=99         " JavaScript
+let php_folding = 1        "Set PHP folding of classes and functions.
+let php_htmlInStrings = 1  "Syntax highlight HTML code inside PHP strings.
+let php_sql_query = 1      "Syntax highlight SQL code inside PHP strings.
+let php_noShortTags = 1    "Disable PHP short tags.
