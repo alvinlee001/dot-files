@@ -58,7 +58,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " lightline
 Plug 'itchyny/lightline.vim'
 " buffers tabline
-" Plug 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
 " autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/nvim-completion-manager'
