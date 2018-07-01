@@ -38,7 +38,8 @@ function! g:utils#nerdWrapper() abort
   if &filetype ==# ''
     :NERDTreeToggle
   elseif expand('%:t') =~? 'NERD_tree'
-    wincmd w
+    " wincmd w
+    :NERDTreeToggle
   else
     :NERDTreeFind
   endif

@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/plugged')
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " colorscheme
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'ajmwagar/vim-deus'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 " automatically closing pair stuff
@@ -121,9 +122,19 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'tobyS/vmustache'
+Plug 'tobyS/pdv'
 Plug 'ervandew/supertab'
+" Java plugins
+Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'neomake/neomake'
 " Plugin to record time used in programming
 Plug 'wakatime/vim-wakatime'
+" Some say better than NerdTree
+Plug 'Shougo/vimfiler.vim'
+" Unite
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 " Icons for nerdtree
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -134,6 +145,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " css color preview
 Plug 'gorodinskiy/vim-coloresque'
+" typescript support
+Plug 'Quramy/tsuquyomi'
 " Alvin End
 call plug#end()
 
@@ -234,10 +247,11 @@ endif
 syntax on
 set background=dark
 " My favorite themes, color is good!!
-" colorscheme base16-oceanicnext
+colorscheme base16-oceanicnext
 " colorscheme base16-paraiso
 " colorscheme base16-solarflare
-colorscheme base16-darktooth
+" colorscheme base16-darktooth
+" colorscheme deus
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -414,7 +428,9 @@ nnoremap ; :
 " ------------------------------------------------------------------------------
 
 " Toggle NERDTree
+" nnoremap <silent> <F1> :NERDTreeToggle %<CR>
 nnoremap <silent> <F1> :call utils#nerdWrapper()<CR>
+" nnoremap <silent> <F1> :VimFilerExplorer<CR>
 " Toggle tagbar
 nnoremap <silent> <F2> :TagbarToggle<CR>
 " Toggle fmt
@@ -566,6 +582,9 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
+"not nerd tree
+" let g:vimfiler_as_default_explorer = 1
+
 " ------------------------------------------------------------------------------
 " FZF
 " ------------------------------------------------------------------------------
@@ -621,6 +640,28 @@ let g:deoplete#max_menu_width=0
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 let g:deoplete#ignore_sources.php = ['omni']
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
+
+"""""""""""""""""""""""""
+""""  Java Complete  """"
+"""""""""""""""""""""""""
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"""""""""""""""""""""""""
+""""     neomake     """"
+"""""""""""""""""""""""""
+" autocmd! BufWritePost,BufEnter * Neomake
+
+"""""""""""""""""""""""""
+""""     neoformat   """"
+"""""""""""""""""""""""""
+" augroup astyle
+"   autocmd!
+"   autocmd BufWritePre * Neoformat
+" augroup END
 
 " ------------------------------------------------------------------------------
 " Neoformat
@@ -705,6 +746,14 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 " PHP-CS-Fixer
 " ------------------------------------------------------------------------------
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile() "for auto fixing on save
+
+" ------------------------------------------------------------------------------
+" PHP PDV
+" ------------------------------------------------------------------------------
+let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
+nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
+
 
 " ------------------------------------------------------------------------------
 " Fixmyjs
