@@ -303,12 +303,6 @@ vnoremap k gk
 vnoremap gj 5j
 vnoremap gk 5k
 
-" When jump to next match also center screen
-nnoremap <silent> n :norm! nzz<CR>
-nnoremap <silent> N :norm! Nzz<CR>
-vnoremap <silent> n :norm! nzz<CR>
-vnoremap <silent> N :norm! Nzz<CR>
-
 " Same when moving up and down
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
@@ -336,16 +330,6 @@ xnoremap c "xc
 vnoremap y y`]
 vnoremap p "_dP`]
 nnoremap p p`]
-
-" Use CamelCaseMotion instead of default motions
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
 
 " Fix the cw at the end of line bug default vim has special treatment (:help cw)
 nmap cw ce
@@ -788,50 +772,6 @@ let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
     \}
 
-" phpcomplete settings
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:complete_index_composer_command = "composer.phar"
-function! GenTags()
-    if isdirectory("./vendor")
-    echo '(re)Generating framework tags'
-    execute "!php artisan ide-helper:generate"
-    echo '(re)Generating tags'
-    execute "!ctags -R --filter-terminator=php"
-    else
-    echo 'Not in a framework project'
-    if filereadable("tags")
-    echo "Regenerating tags..."
-    execute "!ctags -R --filter-terminator=php"
-    else
-    let choice = confirm("Create tags?", "&Yes\n&No", 2)
-    if choice == 1
-    echo "Generating tags..."
-    execute "!ctags -R --filter-terminator=php"
-    endif
-    endif
-    endif
-
-    :endfunction
-
-    command! -nargs=* GenTags call GenTags()
-GenTags()
-
-" vim-php-namespace settings
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
-autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
-
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
@@ -855,7 +795,3 @@ set foldmethod=syntax
 
 set foldlevel=99
 let javaScript_fold=99         " JavaScript
-let php_folding = 1        "Set PHP folding of classes and functions.
-let php_htmlInStrings = 1  "Syntax highlight HTML code inside PHP strings.
-let php_sql_query = 1      "Syntax highlight SQL code inside PHP strings.
-let php_noShortTags = 1    "Disable PHP short tags.
