@@ -44,8 +44,8 @@
         followTags = true
 
 [user]
-        name = Alvin Lee Jin Wen
-        email = alvinlee001@live.com.my
+	name = Alvin Lee Jin Wen
+	email = alvinlee001@live.com.my
 
 [status]
         showUntrackedFiles = all
@@ -64,7 +64,9 @@
 	hideCampaign = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree 2.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/alvinlee/.stCommitMsg
