@@ -18,6 +18,7 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ajmwagar/vim-deus'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
+Plug 'mhinz/vim-startify'
 " automatically closing pair stuff
 Plug 'jiangmiao/auto-pairs'
 " commenting support (gc)
