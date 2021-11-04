@@ -1,3 +1,221 @@
-set surround
-set visualbell
-set noerrorbells
+" ==============================================================================
+" Basic settings
+" ==============================================================================
+
+language en_US
+set shell=/bin/zsh        " Setting shell to zsh
+set number                " Line numbers on
+set noshowmode            " Always show mode
+set showcmd               " Show commands as you type them
+set textwidth=125         " Text width is 120 characters
+set cmdheight=1           " Command line height
+set pumheight=10          " Completion window max size
+set noswapfile            " New buffers will be loaded without creating a swapfile
+set hidden                " Enables to switch between unsaved buffers and keep undo history
+set clipboard+=unnamed    " Allow to use system clipboard
+set lazyredraw            " Don't redraw while executing macros (better performance)
+set showmatch             " Show matching brackets when text indicator is over them
+set matchtime=2           " How many tenths of a second to blink when matching brackets
+set nostartofline         " Prevent cursor from moving to beginning of line when switching buffers
+set virtualedit=block     " To be able to select past EOL in visual block mode
+set nojoinspaces          " No extra space when joining a line which ends with . ? !
+set scrolloff=10           " Scroll when closing to top or bottom of the screen
+set mouse=a               " Scrolling with touchpad
+set updatetime=1000       " Update time used to create swap file or other things
+set suffixesadd+=.js,.rb  " Add js and ruby files to suffixes
+set synmaxcol=160         " Don't try to syntax highlight minified files
+set nowrap                " Don't wrap lines
+set expandtab             " Use space characters in place of tab characters
+set softtabstop=2         " Two spaces soft tab stop
+set shiftwidth=2          " Two spaces when indenting
+set signcolumn=yes        " Always show signcolumns
+set exrc                  " Folder specific configuration
+
+" ==============================================================================
+" Split settings
+" ==============================================================================
+
+set splitbelow " Splitting a window will put the new window below the current
+set splitright " Splitting a window will put the new window right of the current
+
+" ==============================================================================
+" Timeout settings
+" ==============================================================================
+
+" Time out on key codes but not mappings. Basically this makes terminal Vim
+" work sanely. (by Steve Losh)
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+" ==============================================================================
+" Spelling settings
+" ==============================================================================
+
+set nospell
+
+" ==============================================================================
+" Search settings
+" ==============================================================================
+
+set ignorecase " Ignore case by default
+set smartcase  " Make search case sensitive only if it contains U letters
+set wrapscan   " Search again from top when reached the bottom
+set nohlsearch " Don't highlight after search
+
+" ==============================================================================
+" Filetype settings
+" ==============================================================================
+
+filetype plugin on
+filetype indent on
+
+" ==============================================================================
+" Neovim specific settings
+" ==============================================================================
+
+let g:loaded_python_provider=1                    " Disable python 2 interface
+let g:python_host_skip_check=1                    " Skip python 2 host check
+let g:python_host_prog='/usr/local/bin/python2'   " Set python 2 host program
+let g:python3_host_prog='/usr/local/bin/python3'  " Set python 3 host program
+
+if has('termguicolors')
+  set termguicolors " Turn on true colors support
+endif
+" ==============================================================================
+" Mappings
+" ==============================================================================
+
+" ------------------------------------------------------------------------------
+" Leader
+" ------------------------------------------------------------------------------
+
+let g:mapleader="\<space>"
+
+" ------------------------------------------------------------------------------
+" Insane Defaults
+" ------------------------------------------------------------------------------
+
+nnoremap <up> <NOP>
+nnoremap <down> <NOP>
+nnoremap <left> <NOP>
+nnoremap <right> <NOP>
+nnoremap <bs> <NOP>
+nnoremap <delete> <NOP>
+inoremap <up> <NOP>
+inoremap <down> <NOP>
+inoremap <left> <NOP>
+inoremap <right> <NOP>
+nnoremap <Space> <NOP>
+inoremap <F1> <NOP>
+nnoremap <F1> <NOP>
+nnoremap Q <NOP>
+
+" ------------------------------------------------------------------------------
+" Insane Overrides
+" ------------------------------------------------------------------------------
+
+" Easier window switching
+nmap <silent> <C-w><C-w> :call utils#intelligentCycling()<CR>
+
+" Visual linewise up and down by default (and use gj gk to go quicker)
+nnoremap j gj
+nnoremap k gk
+nnoremap gj 5j
+nnoremap gk 5k
+vnoremap j gj
+vnoremap k gk
+vnoremap gj 5j
+vnoremap gk 5k
+
+" Remap H and L (top, bottom of screen to left and right end of line)
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
+" More logical Y (default was alias for yy)
+nnoremap Y y$
+
+" Don't yank to default register when changing something
+nnoremap c "xc
+xnoremap c "xc
+
+" After block yank and paste, move cursor to the end of operated text and don't override register
+vnoremap y y`]
+vnoremap p "_dP`]
+nnoremap p p`]
+" Fix the cw at the end of line bug default vim has special treatment (:help cw)
+nmap cw ce
+nmap dw de
+
+" Uppercase word in insert mode
+inoremap <C-u> <ESC>mzgUiw`za
+
+" Matching brackets with TAB (using matchit) (Breaks the <C-i> jump)
+map <TAB> %
+silent! unmap [%
+silent! unmap ]%
+
+" Don't cancel visual select when shifting
+xnoremap <  <gv
+xnoremap >  >gv
+
+" Make . work with visually selected lines
+xnoremap . :norm.<CR>
+
+" Navigate popup menu
+inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+
+" ------------------------------------------------------------------------------
+" Common tasks
+" ------------------------------------------------------------------------------
+
+" Quick save and close buffer
+nnoremap ,w :w<CR>
+
+" Yank and paste from clipboard
+nnoremap ,y "+y
+vnoremap ,y "+y
+nnoremap ,yy "+yy
+nnoremap ,p "+p
+
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Reselect last-pasted text
+nnoremap gp `[v`]
+
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+" [S]plit line (sister to [J]oin lines) S is covered by cc.
+nnoremap S mzi<CR><ESC>`z
+
+" Easier fold toggling
+nnoremap ,z za
+
+" Start substitute on current word under the cursor
+nnoremap ,s :%s///gc<Left><Left><Left>
+
+" Start search on current word under the cursor
+nnoremap ,/ /<CR>
+
+" Start reverse search on current word under the cursor
+nnoremap ,? ?<CR>
+
+" Faster sort
+vnoremap ,s :!sort<CR>
+
+" Quiting and saving all
+cnoremap ww wqall
+cnoremap qq qall
+
+" Terminal-mode escape
+tnoremap <Esc> <C-\><C-n>
+
+" less key stroke
+nnoremap ; :
+
