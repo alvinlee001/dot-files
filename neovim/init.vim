@@ -100,6 +100,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Galooshi/import-js'
 Plug 'galooshi/vim-import-js'
 Plug 'aradunovic/perun.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
@@ -139,8 +140,8 @@ Plug 'Shougo/denite.nvim'
 " Icons for nerdtree
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Match tags
-Plug 'Valloric/MatchTagAlways'
+" " Match tags
+" Plug 'Valloric/MatchTagAlways'
 " Airline themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -160,7 +161,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'deoplete-plugins/deoplete-jedi'
 " Python linting
 Plug 'nvie/vim-flake8'
-
+" LSP for neovim
+Plug 'neovim/nvim-lspconfig'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 " Alvin End
 call plug#end()
@@ -180,6 +184,7 @@ set rnu                   " Relative line numbers on
 set noshowmode            " Always show mode
 set showcmd               " Show commands as you type them
 set textwidth=125         " Text width is 120 characters
+set colorcolumn=-2        " Text width -2 characters line warning
 set cmdheight=1           " Command line height
 set pumheight=10          " Completion window max size
 set noswapfile            " New buffers will be loaded without creating a swapfile
@@ -498,7 +503,10 @@ nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
 " Plugin settings
 " ==============================================================================
 
-
+" ------------------------------------------------------------------------------
+" Built-in LSP
+" ------------------------------------------------------------------------------
+lua require("lsp-config")
 " ------------------------------------------------------------------------------
 " Tsuquyomi
 " ------------------------------------------------------------------------------
