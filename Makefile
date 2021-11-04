@@ -28,6 +28,8 @@ install_nvim: clean_nvim
 	ln -sf `pwd`/neovim/init.vim ~/.config/nvim/init.vim
 	@echo "Symlinking utils.vim"
 	ln -sf `pwd`/neovim/autoload/utils.vim ~/.config/nvim/autoload/utils.vim
+	@echo "Symlinking utils.vim"
+	ln -sf `pwd`/neovim/lua ~/.config/nvim/lua
 
 clean_nvim:
 	rm -rf ~/.config/nvim
