@@ -19,8 +19,6 @@ Plug 'ajmwagar/vim-deus'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
-" automatically closing pair stuff
-Plug 'jiangmiao/auto-pairs'
 " commenting support (gc)
 Plug 'tpope/vim-commentary'
 " camelCase and snake_case motions
@@ -62,8 +60,7 @@ Plug 'itchyny/lightline.vim'
 " buffers tabline
 Plug 'ap/vim-buftabline'
 " autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-completion-manager'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -99,7 +96,6 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Galooshi/import-js'
 Plug 'galooshi/vim-import-js'
-Plug 'aradunovic/perun.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -114,7 +110,9 @@ Plug 'ruanyl/vim-fixmyjs'
 "Snippets
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
-Plug 'SirVer/ultisnips'
+Plug 'hrsh7th/vim-vsnip'
+" Plug 'SirVer/ultisnips'
+" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " For focus
 Plug 'junegunn/goyo.vim'
 " PHP plugins
@@ -126,7 +124,6 @@ Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer ru
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv'
-Plug 'ervandew/supertab'
 " Java plugins
 Plug 'artur-shaik/vim-javacomplete2'
 " Plug 'neomake/neomake'
@@ -158,13 +155,30 @@ Plug 'racer-rust/vim-racer'
 " Better completion for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Python completion with Jedi
-Plug 'deoplete-plugins/deoplete-jedi'
+" Plug 'deoplete-plugins/deoplete-jedi'
+" Auto Pair
+Plug 'windwp/nvim-autopairs'
 " Python linting
 Plug 'nvie/vim-flake8'
 " LSP for neovim
 Plug 'neovim/nvim-lspconfig'
+" 2021 latest completion, successor of compe
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Rust LSP tools
+Plug 'simrat39/rust-tools.nvim'
+" Debugging (needs plenary from above as well)
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-notify'
 
 " Alvin End
 call plug#end()
@@ -272,6 +286,7 @@ colorscheme base16-oceanicnext
 " colorscheme base16-solarflare
 " colorscheme base16-darktooth
 " colorscheme deus
+highlight Comment cterm=italic
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -375,7 +390,6 @@ nmap dw de
 inoremap <C-u> <ESC>mzgUiw`za
 
 " Matching brackets with TAB (using matchit) (Breaks the <C-i> jump)
-map <TAB> %
 silent! unmap [%
 silent! unmap ]%
 
@@ -512,6 +526,40 @@ lua require("lsp-config")
 " ------------------------------------------------------------------------------
 nnoremap <leader>t :TsuImport<CR>
 
+" ------------------------------------------------------------------------------
+" CMP (Successor of compe)
+" ------------------------------------------------------------------------------
+set completeopt=menu,menuone,noselect
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
+let g:compe.source.luasnip = v:true
+let g:compe.source.emoji = v:true
+" inoremap <silent><expr> <C-Space> compe#complete()
+" inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 " ------------------------------------------------------------------------------
 " Gitgutter
 " ------------------------------------------------------------------------------
@@ -710,7 +758,7 @@ let g:javascript_plugin_flow=1
 " ------------------------------------------------------------------------------
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls', 'rust-analyzer'],
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ 'javascript': ['javascript-typescript-stdio'],
@@ -746,6 +794,21 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 nnoremap <Leader>p :CtrlPMRUFiles<cr>
+
+" ------------------------------------------------------------------------------
+" Telescope
+" ------------------------------------------------------------------------------
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " ------------------------------------------------------------------------------
 " CloseTag
 " ------------------------------------------------------------------------------
