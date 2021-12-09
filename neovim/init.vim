@@ -48,7 +48,9 @@ Plug 'christoomey/vim-tmux-runner'
 " git commit message
 Plug 'rhysd/committia.vim'
 " fzf binding
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+"Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " global replace
 Plug 'skwp/greplace.vim'
 " nerdtree file browser
@@ -191,7 +193,7 @@ call plug#end()
 " Basic settings
 " ==============================================================================
 
-language en_US
+" language en_US
 set shell=/bin/zsh        " Setting shell to zsh
 set number                " Line numbers on
 set rnu                   " Relative line numbers on
