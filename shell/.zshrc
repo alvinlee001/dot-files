@@ -36,7 +36,7 @@ export LANG=en_US.UTF-8
 # Plugins declaration
 # ==============================================================================
 
-plugins=(bundler common-aliases dirhistory git tmux macos vi-mode zsh-completions zsh-syntax-highlighting z)
+plugins=(bundler common-aliases dirhistory git tmux macos vi-mode zsh-autosuggestions zsh-completions zsh-syntax-highlighting z)
 GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git rustup)
 
 # ==============================================================================
