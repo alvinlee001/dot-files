@@ -181,6 +181,8 @@ Plug 'simrat39/rust-tools.nvim'
 " Debugging (needs plenary from above as well)
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-notify'
+" Terminal in neovim
+Plug 'akinsho/toggleterm.nvim'
 
 " Alvin End
 call plug#end()
