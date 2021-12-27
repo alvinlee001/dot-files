@@ -17,6 +17,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ajmwagar/vim-deus'
 Plug 'xolox/vim-colorscheme-switcher'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-conf-live/vimconflive2021-colorscheme'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 " commenting support (gc)
@@ -285,11 +287,13 @@ endif
 syntax on
 set background=dark
 " My favorite themes, color is good!!
-colorscheme base16-oceanicnext
-" colorscheme base16-paraiso
-" colorscheme base16-solarflare
-" colorscheme base16-darktooth
-" colorscheme deus
+" colorscheme vimconflive-2021
+colorscheme srcery
+"colorscheme base16-oceanicnext
+"colorscheme base16-paraiso
+"colorscheme base16-solarflare
+"colorscheme base16-darktooth
+"colorscheme deus
 highlight Comment cterm=italic
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
@@ -460,6 +464,12 @@ tnoremap <Esc> <C-\><C-n>
 
 " less key stroke
 nnoremap ; :
+
+" Undo breakpoints
+inoremap , ,<c-g>u
+inoremap ! !<c-g>u
+inoremap . .<c-g>u
+inoremap ? ?<c-g>u
 
 " ------------------------------------------------------------------------------
 " F-key actions
