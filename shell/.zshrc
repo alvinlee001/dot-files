@@ -114,6 +114,7 @@ export KEYTIMEOUT=1
 export WORKSPACE=$HOME/Workspace
 export GOPATH=$WORKSPACE/gospace
 export PYENV_ROOT=$HOME/.pyenv
+export HOMEBREW_NO_AUTO_UPDATE=1 # skip homebrew updates when `brew install`
 
 # PATH
 export PATH=$GOPATH/bin:$PATH
