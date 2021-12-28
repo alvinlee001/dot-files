@@ -150,6 +150,13 @@ lspconfig.tsserver.setup({
         on_attach(client, bufnr)
     end,
 })
+lspconfig.solargraph.setup({
+    on_attach=on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+})
+
 require("null-ls").config({})
 lspconfig["null-ls"].setup({ on_attach = on_attach })
 lspconfig.rust_analyzer.setup({
