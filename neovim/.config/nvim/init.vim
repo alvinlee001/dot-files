@@ -59,10 +59,9 @@ Plug 'skwp/greplace.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 " nerdtree git plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" lightline
-Plug 'itchyny/lightline.vim'
 " buffers tabline
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
+Plug 'romgrk/barbar.nvim'
 " autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', {
@@ -147,9 +146,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " " Match tags
 " Plug 'Valloric/MatchTagAlways'
-" Airline themes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " css color preview
 Plug 'gorodinskiy/vim-coloresque'
 " typescript support
@@ -191,6 +187,8 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-notify'
 " Terminal in neovim
 Plug 'akinsho/toggleterm.nvim'
+" Lightline Replacement
+Plug 'nvim-lualine/lualine.nvim'
 
 " Alvin End
 call plug#end()
@@ -287,7 +285,7 @@ if has('termguicolors')
 endif
 
 " ==============================================================================
-" Colorscheme + Highlighting + Airline settings
+" Colorscheme + Highlighting settings
 " ==============================================================================
 
 syntax on
@@ -301,10 +299,6 @@ colorscheme srcery
 "colorscheme base16-darktooth
 "colorscheme deus
 highlight Comment cterm=italic
-let g:airline_theme='powerlineish'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'jsformatter'
 
 " ==============================================================================
 " Mappings
@@ -611,36 +605,36 @@ nnoremap <leader>rr :VtrSendLinesToRunner<CR>
 nnoremap <leader>dr :VtrSendCtrlD<CR>
 nnoremap <leader>ar :VtrAttachToPane<CR>
 
-" ------------------------------------------------------------------------------
-" Lightline
-" ------------------------------------------------------------------------------
+" " ------------------------------------------------------------------------------
+" " Lightline
+" " ------------------------------------------------------------------------------
 
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'tab': {
-      \   'active': [ 'filename' ],
-      \   'inactive': [ 'filename' ]
-      \ },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename' ] ],
-      \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype', 'fileencoding', 'fileformat' ] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"HELP":&readonly?"RO":""}'
-      \ },
-      \ 'component_function': {
-      \   'mode': 'utils#lightLineMode',
-      \   'filename': 'utils#lightLineFilename',
-      \   'filetype': 'utils#lightLineFiletype',
-      \   'fileformat': 'utils#lightLineFileformat',
-      \   'fileencoding': 'utils#lightLineFileencoding'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&readonly)'
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+" let g:lightline = {
+"       \ 'colorscheme': 'one',
+"       \ 'tab': {
+"       \   'active': [ 'filename' ],
+"       \   'inactive': [ 'filename' ]
+"       \ },
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename' ] ],
+"       \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype', 'fileencoding', 'fileformat' ] ]
+"       \ },
+"       \ 'component': {
+"       \   'readonly': '%{&filetype=="help"?"HELP":&readonly?"RO":""}'
+"       \ },
+"       \ 'component_function': {
+"       \   'mode': 'utils#lightLineMode',
+"       \   'filename': 'utils#lightLineFilename',
+"       \   'filetype': 'utils#lightLineFiletype',
+"       \   'fileformat': 'utils#lightLineFileformat',
+"       \   'fileencoding': 'utils#lightLineFileencoding'
+"       \ },
+"       \ 'component_visible_condition': {
+"       \   'readonly': '(&readonly)'
+"       \ },
+"       \ 'separator': { 'left': '', 'right': '' },
+"       \ 'subseparator': { 'left': '', 'right': '' }
+"       \ }
 
 " ------------------------------------------------------------------------------
 " Fugitive
