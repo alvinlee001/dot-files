@@ -69,6 +69,10 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+" Neovim LSP supported plugins
+Plug 'folke/lsp-colors.nvim'
+Plug 'kosayoda/nvim-lightbulb'
+Plug 'ojroques/nvim-lspfuzzy'
 " delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
 " intelligent buffer closing
