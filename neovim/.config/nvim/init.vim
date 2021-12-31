@@ -513,8 +513,8 @@ nnoremap <silent> <C-Up> :resize +1<CR>
 nnoremap <silent> <C-Down> :resize -1<CR>
 
 " Buffers navigation and management
-nnoremap <silent> + :bn<CR>
-nnoremap <silent> _ :bp<CR>
+" nnoremap <silent> + :bn<CR>
+" nnoremap <silent> _ :bp<CR>
 
 
 " File and Window Management
