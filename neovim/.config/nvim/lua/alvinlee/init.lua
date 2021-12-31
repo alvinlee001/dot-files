@@ -6,6 +6,7 @@ require ('alvinlee.toggleterm')
 require ('alvinlee.devicons')
 require ('alvinlee.barbar')
 require ('alvinlee.lualine')
+require ('alvinlee.nvim-lsp-installer')
 
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]

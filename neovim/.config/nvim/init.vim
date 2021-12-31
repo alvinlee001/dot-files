@@ -72,6 +72,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'folke/lsp-colors.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'ojroques/nvim-lspfuzzy'
+Plug 'williamboman/nvim-lsp-installer'
 " delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim', { 'on': 'Bonly' }
 " intelligent buffer closing
