@@ -115,6 +115,9 @@ export WORKSPACE=$HOME/Workspace
 export GOPATH=$WORKSPACE/gospace
 export PYENV_ROOT=$HOME/.pyenv
 export HOMEBREW_NO_AUTO_UPDATE=1 # skip homebrew updates when `brew install`
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # PATH
 export PATH=$GOPATH/bin:$PATH
@@ -125,6 +128,8 @@ export PATH=$HOME/.jenv/bin:$PATH
 export PATH=$HOME/.nodev/bin:$PATH
 export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/Users/alvinlee/.local/bin:$PATH
+
 
 
 # ==============================================================================

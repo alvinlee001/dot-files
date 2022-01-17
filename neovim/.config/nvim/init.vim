@@ -158,7 +158,7 @@ Plug 'rust-lang/rust.vim'
 " Rust autocompletion
 Plug 'racer-rust/vim-racer'
 " Better completion for vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Python completion with Jedi
 " Plug 'deoplete-plugins/deoplete-jedi'
 " Auto Pair
@@ -180,6 +180,7 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " Rust LSP tools
 Plug 'simrat39/rust-tools.nvim'
@@ -684,7 +685,6 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:fzf_layout = { 'down': '~30%'}
 
 nnoremap <leader>o :FZF<CR>
-nnoremap <leader>a :Ag<Space>
 nnoremap <silent> ,g :call utils#searchCurrentWordWithAg()<CR>
 
 " ------------------------------------------------------------------------------
@@ -794,12 +794,6 @@ au filetype php set omnifunc=LanguageClient#complete
 " no need for diagnostics, we're going to use neomake for that
 let g:LanguageClient_diagnosticsEnable  = 0
 let g:LanguageClient_signColumnAlwaysOn = 0
-
-" I only use these 3 mappings
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
-nnoremap K :call LanguageClient_textDocument_hover()<cr>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -972,7 +966,6 @@ set hidden
 let g:racer_cmd = "/Users/alvinlee/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
-au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
@@ -985,6 +978,6 @@ if filereadable(expand("~/.config/nvim/custom.vim"))
   source ~/.config/nvim/custom.vim
 endif
 
-if filereadable(expand("~/.config/nvim/coc.vim"))
-  source ~/.config/nvim/coc.vim
-endif
+" if filereadable(expand("~/.config/nvim/coc.vim"))
+"   source ~/.config/nvim/coc.vim
+" endif
