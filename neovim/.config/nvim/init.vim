@@ -167,6 +167,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'nvie/vim-flake8'
 " LSP for neovim
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
 " 2021 latest completion, successor of compe
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -186,11 +187,14 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'simrat39/rust-tools.nvim'
 " Debugging (needs plenary from above as well)
 Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-notify'
+" Plug 'rcarriga/nvim-notify'
 " Terminal in neovim
 Plug 'akinsho/toggleterm.nvim'
 " Lightline Replacement
 Plug 'nvim-lualine/lualine.nvim'
+
+" Golang
+Plug 'fatih/vim-go'
 
 " Alvin End
 call plug#end()
@@ -970,6 +974,16 @@ au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+
+"vim-go hightlight
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 
 " Custom configurations ----------------
 
