@@ -25,6 +25,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+#zsh-autosuggestions color fix
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
 # Disable auto title setting
 DISABLE_AUTO_TITLE="true"
 
@@ -129,6 +132,7 @@ export PATH=$HOME/.nodev/bin:$PATH
 export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/Users/alvinlee/.local/bin:$PATH
+export PATH="/Users/alvinlee/.local/share/solana/install/active_release/bin:$PATH"
 
 
 

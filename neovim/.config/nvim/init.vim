@@ -174,6 +174,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" Tabnine for autocompletion
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 Plug 'sudormrfbin/cheatsheet.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -210,7 +212,6 @@ call plug#end()
 " language en_US
 set shell=/bin/zsh        " Setting shell to zsh
 set number                " Line numbers on
-set rnu                   " Relative line numbers on
 set noshowmode            " Always show mode
 set showcmd               " Show commands as you type them
 set textwidth=125         " Text width is 120 characters
@@ -237,6 +238,7 @@ set softtabstop=2         " Two spaces soft tab stop
 set shiftwidth=2          " Two spaces when indenting
 set signcolumn=yes        " Always show signcolumns
 set exrc                  " Folder specific configuration
+set guifont=FuraCode\ Nerd\ Font
 
 " ==============================================================================
 " Split settings
@@ -976,6 +978,14 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
+hi Normal guibg=none ctermbg=none
+hi LineNr guibg=none ctermbg=none
+hi Folded guibg=none ctermbg=none
+hi NonText guibg=none ctermbg=none
+hi SpecialKey guibg=none ctermbg=none
+hi VertSplit guibg=none ctermbg=none
+hi SignColumn guibg=none ctermbg=none
+hi EndOfBuffer guibg=none ctermbg=none
 
 "vim-go hightlight
 let g:go_highlight_types = 1
@@ -985,6 +995,11 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 
+"rust config
+let g:rustfmt_autosave = 1
+"neovide
+" let g:neovide_transparency=0.8
+" let g:neovide_cursor_vfx_mode = "pixiedust"
 " Custom configurations ----------------
 
 " Include user's custom nvim configurations
@@ -995,3 +1010,4 @@ endif
 " if filereadable(expand("~/.config/nvim/coc.vim"))
 "   source ~/.config/nvim/coc.vim
 " endif
+
