@@ -37,8 +37,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'easymotion/vim-easymotion'
 " neoformat
 Plug 'sbdchd/neoformat'
-" ale (Linting Engine)
-Plug 'w0rp/ale'
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 " emmet
@@ -64,10 +62,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'romgrk/barbar.nvim'
 " autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 " Neovim LSP supported plugins
 Plug 'folke/lsp-colors.nvim'
 Plug 'kosayoda/nvim-lightbulb'
@@ -87,8 +85,6 @@ Plug 'tmhedberg/matchit'
 " vim + tmux clipboard
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-" gitgutter
-Plug 'airblade/vim-gitgutter'
 " tagbar
 Plug 'majutsushi/tagbar'
 " better start
@@ -119,29 +115,22 @@ Plug 'ruanyl/vim-fixmyjs'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 Plug 'hrsh7th/vim-vsnip'
-" Plug 'SirVer/ultisnips'
-" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " For focus
 Plug 'junegunn/goyo.vim'
-" PHP plugins
-Plug 'StanAngeloff/php.vim'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'tobyS/vmustache'
-Plug 'tobyS/pdv'
+" " PHP plugins
+" Plug 'StanAngeloff/php.vim'
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" Plug 'arnaud-lb/vim-php-namespace'
+" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+" Plug 'stephpy/vim-php-cs-fixer'
+" Plug 'tobyS/vmustache'
+" Plug 'tobyS/pdv'
 " Java plugins
 Plug 'artur-shaik/vim-javacomplete2'
 " Plug 'neomake/neomake'
 " Plugin to record time used in programming
 Plug 'wakatime/vim-wakatime'
-" Some say better than NerdTree
-Plug 'Shougo/vimfiler.vim'
-" Unite
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/denite.nvim'
 " Icons for nerdtree
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -157,14 +146,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'rust-lang/rust.vim'
 " Rust autocompletion
 Plug 'racer-rust/vim-racer'
-" Better completion for vim
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Python completion with Jedi
-" Plug 'deoplete-plugins/deoplete-jedi'
 " Auto Pair
 Plug 'windwp/nvim-autopairs'
-" Python linting
-Plug 'nvie/vim-flake8'
+" " Python linting
+" Plug 'nvie/vim-flake8'
 " LSP for neovim
 Plug 'neovim/nvim-lspconfig'
 Plug 'mfussenegger/nvim-jdtls'
@@ -177,7 +162,6 @@ Plug 'hrsh7th/nvim-cmp'
 " Tabnine for autocompletion
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
-Plug 'sudormrfbin/cheatsheet.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-lua/popup.nvim'
@@ -197,7 +181,18 @@ Plug 'nvim-lualine/lualine.nvim'
 
 " Golang
 Plug 'fatih/vim-go'
+" UltiSnips
+"Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+"Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
+Plug 'L3MON4D3/LuaSnip'
+Plug 'onsails/lspkind-nvim'
+Plug 'kristijanhusak/defx-git'
+Plug 'kristijanhusak/defx-icons'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'onsails/lspkind-nvim'
 " Alvin End
 call plug#end()
 
@@ -845,7 +840,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-"let g:UltiSnipsSnippetDirectories=['~/.config/nvim/plugged/vim-snippets/UltiSnips','~/.config/nvim/plugged/vim-react-snippets/UltiSnips']
+let g:UltiSnipsSnippetDirectories=['~/.config/nvim/plugged/vim-snippets/UltiSnips','~/.config/nvim/plugged/vim-react-snippets/UltiSnips']
 let g:UltiSnipsExpandTrigger="<c-l>"
 
 
