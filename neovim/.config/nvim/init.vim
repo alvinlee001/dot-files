@@ -191,7 +191,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'onsails/lspkind-nvim'
 " Alvin End
 call plug#end()
