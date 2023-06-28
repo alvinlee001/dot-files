@@ -14,11 +14,13 @@ call plug#begin('~/.config/nvim/plugged')
 " START-OF-PLUG
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " colorscheme
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'ajmwagar/vim-deus'
+" Plug 'tyrannicaltoucan/vim-deep-space'
+" Plug 'ajmwagar/vim-deus'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'vim-conf-live/vimconflive2021-colorscheme'
+" Plug 'NvChad/base46"
+Plug 'RRethy/nvim-base16'
 Plug 'xolox/vim-colorscheme-switcher'
-Plug 'flazz/vim-colorschemes'
-Plug 'vim-conf-live/vimconflive2021-colorscheme'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 " commenting support (gc)
@@ -290,12 +292,12 @@ endif
 " ==============================================================================
 " Colorscheme + Highlighting settings
 " ==============================================================================
-
 syntax on
 set background=dark
 " My favorite themes, color is good!!
 " colorscheme vimconflive-2021
-colorscheme srcery
+" colorscheme srcery
+colorscheme base16-material-darker
 "colorscheme base16-oceanicnext
 "colorscheme base16-paraiso
 "colorscheme base16-solarflare

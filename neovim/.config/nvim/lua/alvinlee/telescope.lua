@@ -10,4 +10,7 @@ require'telescope'.setup {
       find_cmd = "rg" -- find command (defaults to `fd`)
     }
   },
+  defaults = {
+    prompt_prefix = "🔍 ",
+  }
 }

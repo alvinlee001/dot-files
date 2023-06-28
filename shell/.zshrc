@@ -135,6 +135,7 @@ export PATH=/Users/alvinlee/.local/bin:$PATH
 export PATH="/Users/alvinlee/.local/share/solana/install/active_release/bin:$PATH"
 
 
+source ~/.personalrc
 
 # ==============================================================================
 # Hooks
