@@ -22,7 +22,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'RRethy/nvim-base16'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
-Plug 'mhinz/vim-startify'
 " commenting support (gc)
 Plug 'tpope/vim-commentary'
 " camelCase and snake_case motions
@@ -99,7 +98,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'reasonml-editor/vim-reason-plus'
 
 " Alvin Start
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Galooshi/import-js'
 Plug 'galooshi/vim-import-js'
 Plug 'junegunn/vim-easy-align'
@@ -119,16 +117,6 @@ Plug 'epilande/vim-react-snippets'
 Plug 'hrsh7th/vim-vsnip'
 " For focus
 Plug 'junegunn/goyo.vim'
-" " PHP plugins
-" Plug 'StanAngeloff/php.vim'
-" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" Plug 'arnaud-lb/vim-php-namespace'
-" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-" Plug 'stephpy/vim-php-cs-fixer'
-" Plug 'tobyS/vmustache'
-" Plug 'tobyS/pdv'
-" Java plugins
 Plug 'artur-shaik/vim-javacomplete2'
 " Plug 'neomake/neomake'
 " Plugin to record time used in programming
@@ -799,29 +787,6 @@ let g:LanguageClient_diagnosticsEnable  = 0
 let g:LanguageClient_signColumnAlwaysOn = 0
 
 " ------------------------------------------------------------------------------
-" CtrlP
-" ------------------------------------------------------------------------------
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-nnoremap <Leader>p :CtrlPMRUFiles<cr>
-
-" ------------------------------------------------------------------------------
-" Telescope
-" ------------------------------------------------------------------------------
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-" ------------------------------------------------------------------------------
 " CloseTag
 " ------------------------------------------------------------------------------
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js"
@@ -844,20 +809,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/plugged/vim-snippets/UltiSnips','~/.config/nvim/plugged/vim-react-snippets/UltiSnips']
 let g:UltiSnipsExpandTrigger="<c-l>"
-
-
-" " ------------------------------------------------------------------------------
-" " PHP-CS-Fixer
-" " ------------------------------------------------------------------------------
-" nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
-" autocmd BufWritePost *.php silent! call PhpCsFixerFixFile() "for auto fixing on save
-
-" " ------------------------------------------------------------------------------
-" " PHP PDV
-" " ------------------------------------------------------------------------------
-" let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
-" nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
-
 
 " ------------------------------------------------------------------------------
 " Fixmyjs
@@ -892,50 +843,6 @@ let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
     \}
 
-" " phpcomplete settings
-" autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-" let g:complete_index_composer_command = "composer.phar"
-" function! GenTags()
-"     if isdirectory("./vendor")
-"     echo '(re)Generating framework tags'
-"     execute "!php artisan ide-helper:generate"
-"     echo '(re)Generating tags'
-"     execute "!ctags -R --filter-terminator=php"
-"     else
-"     echo 'Not in a framework project'
-"     if filereadable("tags")
-"     echo "Regenerating tags..."
-"     execute "!ctags -R --filter-terminator=php"
-"     else
-"     let choice = confirm("Create tags?", "&Yes\n&No", 2)
-"     if choice == 1
-"     echo "Generating tags..."
-"     execute "!ctags -R --filter-terminator=php"
-"     endif
-"     endif
-"     endif
-
-"     :endfunction
-
-"     command! -nargs=* GenTags call GenTags()
-" GenTags()
-
-" " vim-php-namespace settings
-" function! IPhpInsertUse()
-"     call PhpInsertUse()
-"     call feedkeys('a',  'n')
-" endfunction
-" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-" function! IPhpExpandClass()
-"     call PhpExpandClass()
-"     call feedkeys('a', 'n')
-" endfunction
-" autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
-" autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
-
 " Run checktime in buffers, but avoiding the "Command Line" (q:) window
 autocmd CursorHold * if getcmdwintype() == '' | checktime | endif
 
@@ -948,13 +855,6 @@ augroup line_return
         \ endif
 augroup END
 
-" Aug autopairs to not auto close on rust's lifetime syntax
-augroup vimrc-rust-autopairs
-  autocmd!
-  autocmd FileType rust let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
-augroup END
-
-set foldmethod=syntax
 " set foldlevelstart=1
 
 set foldlevel=99
@@ -963,15 +863,6 @@ let php_folding = 1        "Set PHP folding of classes and functions.
 let php_htmlInStrings = 1  "Syntax highlight HTML code inside PHP strings.
 let php_sql_query = 1      "Syntax highlight SQL code inside PHP strings.
 let php_noShortTags = 1    "Disable PHP short tags.
-
-"vim-racer (settings for rust racer completion)
-set hidden
-let g:racer_cmd = "/Users/alvinlee/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -983,14 +874,6 @@ hi SpecialKey guibg=none ctermbg=none
 hi VertSplit guibg=none ctermbg=none
 hi SignColumn guibg=none ctermbg=none
 hi EndOfBuffer guibg=none ctermbg=none
-
-"vim-go hightlight
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
 
 "rust config
 let g:rustfmt_autosave = 1
