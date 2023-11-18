@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'flazz/vim-colorschemes'
 " Plug 'vim-conf-live/vimconflive2021-colorscheme'
 " Plug 'NvChad/base46"
+Plug 'craftzdog/solarized-osaka.nvim'
 Plug 'RRethy/nvim-base16'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
@@ -285,12 +286,13 @@ set background=dark
 " My favorite themes, color is good!!
 " colorscheme vimconflive-2021
 " colorscheme srcery
-colorscheme base16-material-darker
+" colorscheme base16-material-darker
 "colorscheme base16-oceanicnext
-"colorscheme base16-paraiso
+" colorscheme base16-paraiso
 "colorscheme base16-solarflare
 "colorscheme base16-darktooth
-"colorscheme deus
+" colorscheme deus
+colorscheme solarized-osaka
 highlight Comment cterm=italic
 
 " ==============================================================================

@@ -96,7 +96,7 @@ alias fparcel="node --inspect ~/Forks/parcel/bin/cli.js"
 alias q="exit"
 alias localip="ipconfig getifaddr en0"
 alias externalip="dig +short myip.opendns.com @resolver1.opendns.com"
-
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 # Uncommited
 [ -f ~/.rocket-aliases.zsh ] && source ~/.rocket-aliases.zsh
 
@@ -118,9 +118,10 @@ export WORKSPACE=$HOME/Workspace
 export GOPATH=$WORKSPACE/gospace
 export PYENV_ROOT=$HOME/.pyenv
 export HOMEBREW_NO_AUTO_UPDATE=1 # skip homebrew updates when `brew install`
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+ export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # PATH
 export PATH=$GOPATH/bin:$PATH
@@ -133,6 +134,7 @@ export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/Users/alvinlee/.local/bin:$PATH
 export PATH="/Users/alvinlee/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"
 
 
 source ~/.personalrc
@@ -152,3 +154,40 @@ eval "$(direnv hook zsh)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 . /usr/local/opt/asdf/asdf.sh
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+if [[ ! -o interactive ]]; then
+    return
+fi
+
+compctl -K _jina jina
+
+_jina() {
+  local words completions
+  read -cA words
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(jina commands)"
+  else
+    completions="$(jina completions ${words[2,-2]})"
+  fi
+
+  reply=(${(ps:
+:)completions})
+}
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# JINA_CLI_END
+
+
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
